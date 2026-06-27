@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@venusili</title>
+
+  <style>
+    @font-face {
+      font-family: EpiceneDisplay;
+      src: url('family/EpiceneDisplay-Light.otf') format('opentype');
+      font-weight: lighter;
+    }
+   
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: EpiceneDisplay;
+      color:#00ff00;
+      text-align: center;
+      padding-top: 10%;
+      background-color: #e7b17b;
+      font-size: 5vw;
+      margin: 0;
+    }
+
+    a {
+      color:#232323;
+      font-size: 5vw;
+    }
+
+    .navigation:hover {
+      font-size: 7vw;
+    }
+
+    button {
+      font-family: EpiceneDisplay;
+      font-size: 3vw;
+      background-color: #e7b17b;
+      border: none;
+      color: #FE5D8D;
+      padding: 30px 32px;
+      margin: 20px 2px;
+      cursor: pointer;
+    }
+
+    /* POLICY LINK */
+    .policy-link {
+      color: #00ff00;
+      font-size: 3vw;
+      text-decoration: none;
+    }
+
+    /* GLITCH LINK */
+    .glitch-link {
+      color: #FFFDD0;
+      font-style: italic;
+      text-decoration: none;
+      font-size: 3vw;
+      display: inline-block;
+      max-width: 90vw;
+    }
+
+    #glitchText {
+      display: inline-block;
+      max-width: 90vw;
+      overflow-wrap: anywhere;
+    }
+
+    .glitching {
+      animation: glitchFlicker 0.3s steps(2, end);
+    }
+
+    @keyframes glitchFlicker {
+      0%   { transform: translate(0); opacity: 1; }
+      25%  { transform: translate(-2px, 1px); opacity: 0.6; }
+      50%  { transform: translate(2px, -1px); opacity: 0.8; }
+      75%  { transform: translate(-1px, -2px); opacity: 0.5; }
+      100% { transform: translate(0); opacity: 1; }
+    }
+
+    /* =========================
+       MODAL (BUTTON REPLACEMENT)
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #8f3d4d;
+      color: #ff0000;
+      padding: 30px;
+      font-size: 2vw;
+      width: 60vw;
+      text-align: center;
+      border: 8px solid #8b7070;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      font-size: 2vw;
+      padding: 10px 20px;
+      background: #FE5D8D;
+      color: #e7b17b;
+      border: none;
+      cursor: pointer;
+    }
+
+    #words {
+     color: #FE5D8D;
+     font-size:3vw;
+     text-align: left;
+     text-align: justify;
+    text-justify: inter-word;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<a href="withhands.html" target="_blank" class="navigation">go back</a>
+<br><br>
+
+
+<p id="words">
+  Handmade Statement <br>
+
+  Each piece is time—consumingly handcrafted with hyperfixated attention. While we guarantee superb quality, slight imperfections may arise. These delicate irregularities are proof of the handmade touch in venusilicon creations.
+
+  <br><br> <br><br>
+
+  FAQ—Handmade Products <br>
+
+Cancel <br>
+Cancellation can occur in-between a 72 hour period after placing your order, just do so by sending me a dm or text.
+
+  <br><br>
+
+Refunds <br>
+Due to the unique nature of these goods, we do not offer refunds.  
+
+ <br><br>
+
+
+Warranty <br>
+We stand by the quality of our work and are pleased to provide a warranty for up to 6 months from the date of purchase. This warranty covers repairs for defects in materials or craftsmanship at no additional cost but does not include normal wear and tear, damage caused by misuse, or alterations made by the customer. If you experience an issue within the warranty period, please send me a dm or text with your order, a description of the problem, and photos if applicable. If the issue qualifies under the warranty, we will provide instructions on how to send the item for repair.
+ 
+  <br><br>
+
+Accepted Payment Methods <br>
+We accept payments via Stripe payment links + ApplePay. 
+
+ <br><br>
+ 
+International Orders <br>
+We currently do not offer shipping outside the United States. We hope to expand internationally in the future.
+ <br><br>
+ 
+Domestic Orders <br>
+All orders within the United States ship free of charge (USPS Ground Advantage®). We’re committed to making your shopping experience as seamless as possible. If you need expedited shipping, feel free to reach out, and we'll accommodate your request but please note that any additional shipping costs are the responsibility of the customer.
+ 
+  <br><br>
+Processing Time <br>
+Handmade products are ready for shipment. Ships within 1-2 weeks. 
+ 
+Longevity <br>
+Care instructions vary depending on the mixture of materials used, when placing an order it will be provided.
+ <br><br>
+Sustainability <br>
+To reduce waste, we don't include packing slips in packages. A confirmation \ receipt is sent via email, dm, text, whatever you prefer.
+
+</p>
+
+<br><br>
+
+
+<!-- GLITCH LINK -->
+<a href="giftme.html" class="glitch-link">
+  <span id="glitchText">do you enjoy my content?... right this way ↷</span>
+</a>
+
+
+<br><br>
+
+<footer style="text-align:right; margin-top: 10%; margin-right: 5%; font-size:3vw; color:#0073ce;">
+  <p>© 2026 venusilicon</p>
+</footer>
+
+<script>
+
+const messages = [
+  "do you enjoy my content?... right this way ↷",
+  "do you like what i do?... right this way ↷",
+  "do my creations feel worth supporting?... right this way ↷",
+  "feeling generous?... right this way ↷"
+];
+
+let i = 0;
+const el = document.getElementById("glitchText");
+
+function swap() {
+  el.classList.add("glitching");
+
+  setTimeout(() => {
+    i = (i + 1) % messages.length;
+    el.textContent = messages[i];
+  }, 120);
+
+  setTimeout(() => {
+    el.classList.remove("glitching");
+  }, 300);
+}
+
+setInterval(swap, 2500);
+
+/* MODAL CONTROLS */
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
