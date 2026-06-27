@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@venusili</title>
+
+  <style>
+    @font-face {
+      font-family: EpiceneDisplay;
+      src: url('family/EpiceneDisplay-Light.otf') format('opentype');
+      font-weight: lighter;
+    }
+   
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: EpiceneDisplay;
+      color:#00ff00;
+      text-align: center;
+      padding-top: 10%;
+      background-color: #0073ce;
+      font-size: 5vw;
+      margin: 0;
+    }
+
+    a {
+      color:#00ff00;
+      font-size: 5vw;
+    }
+
+    .navigation:hover {
+      font-size: 7vw;
+    }
+
+    button {
+      font-family: EpiceneDisplay;
+      font-size: 3vw;
+      background-color: #e7b17b;
+      border: none;
+      color: #FE5D8D;
+      padding: 30px 32px;
+      margin: 20px 2px;
+      cursor: pointer;
+    }
+
+    /* POLICY LINK */
+    .policy-link {
+      color: #00ff00;
+      font-size: 3vw;
+      text-decoration: none;
+    }
+
+    /* GLITCH LINK */
+    .glitch-link {
+      color: #FFFDD0;
+      font-style: italic;
+      text-decoration: none;
+      font-size: 3vw;
+      display: inline-block;
+      max-width: 90vw;
+    }
+
+    #glitchText {
+      display: inline-block;
+      max-width: 90vw;
+      overflow-wrap: anywhere;
+    }
+
+    .glitching {
+      animation: glitchFlicker 0.3s steps(2, end);
+    }
+
+    @keyframes glitchFlicker {
+      0%   { transform: translate(0); opacity: 1; }
+      25%  { transform: translate(-2px, 1px); opacity: 0.6; }
+      50%  { transform: translate(2px, -1px); opacity: 0.8; }
+      75%  { transform: translate(-1px, -2px); opacity: 0.5; }
+      100% { transform: translate(0); opacity: 1; }
+    }
+
+    /* =========================
+       MODAL (BUTTON REPLACEMENT)
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .modal-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #8f3d4d;
+      color: #ff0000;
+      padding: 30px;
+      font-size: 2vw;
+      width: 60vw;
+      text-align: center;
+      border: 8px solid #8b7070;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      font-size: 2vw;
+      padding: 10px 20px;
+      background: #FE5D8D;
+      color: #e7b17b;
+      border: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<a href="https://www.instagram.com/silimakestuff" target="_blank" class="navigation">instagram.com/@silimakestuff</a> <br>
+<a href="https://www.kick.com/venusili" target="_blank" class="navigation">kick.com/venusili</a> <br>
+<a href="https://www.youtube.com/@venusili" target="_blank" class="navigation">youtube.com/@venusili</a>
+
+<br><br>
+
+<!-- BUTTON (NOW MODAL) -->
+<button onclick="openModal()">who, what are i?</button>
+
+<br><br>
+
+<!-- POLICY -->
+<a href="https://docs.google.com/document/d/1OdGuLgrZN2FO3o5ubHYR-wG7jGMtXuJFT25wxAfu9bw/edit?usp=sharing"
+target="_blank"
+class="policy-link">
+handmade statement, faq, privacy policy
+</a>
+
+<br><br>
+
+<!-- GLITCH LINK -->
+<a href="giftme.html" class="glitch-link">
+  <span id="glitchText">do you enjoy my content?... right this way ↷</span>
+</a>
+
+<br><br>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <p>
+      venusili’s 1st experience hand-knitting dates back to 2020, took a course @ Parsons New School of Design during her senior year. The intrigue never dissipated. Initially trained as a communication designer (holds a BFA in communication design & AFA in graphic design + fine arts. Enjoys turtle-walking-through-peanut-butter execution of handmade products that showcases personality & exudes craftsmanship.
+    </p>
+
+    <button class="close-btn" onclick="closeModal()">haha ok</button>
+  </div>
+</div>
+
+<br><br>
+
+<footer style="text-align:right; margin-top: 10%; margin-right: 5%; font-size:3vw; color:#FE2F6A;">
+  <p>© 2026 venusilicon</p>
+</footer>
+
+<script>
+
+const messages = [
+  "do you enjoy my content?... right this way ↷",
+  "do you like what i do?... right this way ↷",
+  "do my creations feel worth supporting?... right this way ↷",
+  "feeling generous?... right this way ↷"
+];
+
+let i = 0;
+const el = document.getElementById("glitchText");
+
+function swap() {
+  el.classList.add("glitching");
+
+  setTimeout(() => {
+    i = (i + 1) % messages.length;
+    el.textContent = messages[i];
+  }, 120);
+
+  setTimeout(() => {
+    el.classList.remove("glitching");
+  }, 300);
+}
+
+setInterval(swap, 2500);
+
+/* MODAL CONTROLS */
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
