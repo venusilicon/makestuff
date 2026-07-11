@@ -13,6 +13,21 @@
       font-weight: lighter;
     }
    
+img {
+  width: 50vw;
+  animation: bounceSide 2s ease-in-out infinite;
+}
+@keyframes bounceSide {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
 
     html, body {
       max-width: 100%;
@@ -128,7 +143,8 @@
 <body>
 
 <!-- NAV -->
-<a href="store.html" class="navigation">store</a> <br>
+<a href="store.html" class="navigation">store</a>  <br><br>
+ <img src="logo.png" alt="venus silicon logo" > <br><br>
 <a href="https://www.instagram.com/silimakestuff" target="_blank" class="navigation">instagram.com/@silimakestuff</a> <br>
 <a href="https://www.kick.com/venusili" target="_blank" class="navigation">kick.com/venusili</a> \ <a href="live.html" class="navigation">livestream archive</a>
 
