@@ -221,16 +221,52 @@ body {
 }
 
 
-.log-subtitle {
 
-  font-size: 3vw;
+/* =========================================================
+   LOGO
+========================================================= */
+
+.log-logo {
 
   margin-top: 2%;
 
-  color: #FE5D8D;
+  perspective: 800px;
 
 }
 
+
+.log-logo img {
+
+  display: block;
+
+  width: 18vw;
+
+  max-width: 180px;
+
+  height: auto;
+
+  transform-style: preserve-3d;
+
+  animation: logoSpin 22s linear infinite;
+
+}
+
+
+@keyframes logoSpin {
+
+  from {
+
+    transform: rotateY(0deg);
+
+  }
+
+  to {
+
+    transform: rotateY(360deg);
+
+  }
+
+}
 
 /* =========================================================
    ONLINE STATUS
@@ -725,11 +761,7 @@ footer {
   }
 
 
-  .log-subtitle {
 
-    font-size: 5vw;
-
-  }
 
 
   .online-status {
@@ -908,9 +940,12 @@ footer {
   </h1>
 
 
-  <div class="log-subtitle">
-    silicon venus
-  </div>
+ <div class="log-logo">
+  <img
+    src="logo.png"
+    alt="silicon venus logo"
+  >
+</div>
 
 
   <div class="online-status">
