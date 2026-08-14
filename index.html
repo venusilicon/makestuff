@@ -221,7 +221,6 @@ body {
 }
 
 
-
 /* =========================================================
    LOGO
 ========================================================= */
@@ -267,6 +266,7 @@ body {
   }
 
 }
+
 
 /* =========================================================
    ONLINE STATUS
@@ -761,9 +761,6 @@ footer {
   }
 
 
-
-
-
   .online-status {
 
     font-size: 4vw;
@@ -925,7 +922,6 @@ footer {
 </nav>
 
 
-
 <!-- =======================================================
      MATERIAL LOG
 ======================================================== -->
@@ -940,12 +936,14 @@ footer {
   </h1>
 
 
- <div class="log-logo">
-  <img
-    src="logo.png"
-    alt="silicon venus logo"
-  >
-</div>
+  <div class="log-logo">
+
+    <img
+      src="logo.png"
+      alt="silicon venus logo"
+    >
+
+  </div>
 
 
   <div class="online-status">
@@ -957,7 +955,6 @@ footer {
   </div>
 
 </header>
-
 
 
 <!-- =======================================================
@@ -981,7 +978,6 @@ footer {
 </div>
 
 
-
 <!-- =======================================================
      TYPING INDICATOR
 ======================================================== -->
@@ -996,7 +992,6 @@ footer {
 </div>
 
 
-
 <!-- =======================================================
      COMPOSER
 ======================================================== -->
@@ -1007,7 +1002,8 @@ footer {
 <textarea
   id="entryText"
   class="composer-textarea"
-  placeholder="venus make stuff"
+  placeholder="sign in with your passkey"
+  disabled
 ></textarea>
 
 
@@ -1026,7 +1022,7 @@ footer {
   onclick="handleComposerAction()"
 >
 
-  send code →
+  unlock →
 
 </button>
 
@@ -1036,9 +1032,7 @@ footer {
 </section>
 
 
-
 </main>
-
 
 
 <!-- =======================================================
@@ -1052,13 +1046,11 @@ footer {
 </footer>
 
 
-
 <!-- =======================================================
      SUPABASE
 ======================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 
 <script>
@@ -1077,8 +1069,25 @@ const SUPABASE_PUBLISHABLE_KEY =
 
 const supabaseClient =
   window.supabase.createClient(
+
     SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
+
+    SUPABASE_PUBLISHABLE_KEY,
+
+    {
+
+      auth: {
+
+        experimental: {
+
+          passkey: true
+
+        }
+
+      }
+
+    }
+
   );
 
 
@@ -1086,9 +1095,7 @@ const supabaseClient =
    STATE
 ========================================================= */
 
-let authStep = "email";
-
-let loginEmail = "";
+let authStep = "locked";
 
 let typingTimer = null;
 
@@ -1132,6 +1139,7 @@ function closeMenu() {
     .getElementById("menuPanel")
     .classList.remove("open");
 
+
   document
     .getElementById("menuButton")
     .style.visibility = "visible";
@@ -1144,7 +1152,9 @@ function closeMenu() {
 ========================================================= */
 
 document.addEventListener(
+
   "click",
+
   function(event) {
 
     const panel =
@@ -1155,9 +1165,13 @@ document.addEventListener(
 
 
     if (
+
       panel.classList.contains("open") &&
+
       !panel.contains(event.target) &&
+
       !button.contains(event.target)
+
     ) {
 
       closeMenu();
@@ -1165,49 +1179,18 @@ document.addEventListener(
     }
 
   }
+
 );
 
 
 /* =========================================================
-   AUTH
+   UI STATES
 ========================================================= */
 
-async function checkSession() {
+function setLockedState() {
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth.getSession();
+  authStep = "locked";
 
-
-  if (error) {
-
-    console.error(error);
-
-    return;
-
-  }
-
-
-  if (data.session) {
-
-    setLoggedIn();
-
-  }
-
-  else {
-
-    setLoginState();
-
-  }
-
-}
-
-
-function setLoginState() {
-
-  authStep = "email";
 
   const textarea =
     document.getElementById("entryText");
@@ -1219,13 +1202,19 @@ function setLoginState() {
     document.getElementById("loginHelp");
 
 
+  textarea.disabled = true;
+
   textarea.value = "";
 
   textarea.placeholder =
-    "venus make stuff";
+    "sign in with your passkey";
+
+
+  button.disabled = false;
 
   button.textContent =
-    "send code →";
+    "unlock →";
+
 
   help.textContent =
     "";
@@ -1237,6 +1226,7 @@ function setLoggedIn() {
 
   authStep = "entry";
 
+
   const textarea =
     document.getElementById("entryText");
 
@@ -1247,15 +1237,23 @@ function setLoggedIn() {
     document.getElementById("loginHelp");
 
 
+  textarea.disabled = false;
+
   textarea.value = "";
 
   textarea.placeholder =
     "hey sili";
 
+
+  button.disabled = false;
+
   button.textContent =
     "send →";
 
-  help.textContent = "";
+
+  help.textContent =
+    "";
+
 
   loadEntries();
 
@@ -1263,106 +1261,10 @@ function setLoggedIn() {
 
 
 /* =========================================================
-   SEND LOGIN CODE
+   PASSKEY SIGN IN
 ========================================================= */
 
-async function sendCode() {
-
-  const textarea =
-    document.getElementById("entryText");
-
-
-  const email =
-    textarea.value.trim();
-
-
-  if (!email) {
-
-    return;
-
-  }
-
-
-  loginEmail = email;
-
-
-  const button =
-    document.getElementById("sendButton");
-
-  const help =
-    document.getElementById("loginHelp");
-
-
-  button.disabled = true;
-
-  button.textContent =
-    "sending...";
-
-
-  const {
-    error
-  } =
-    await supabaseClient.auth.signInWithOtp({
-
-      email: email
-
-    });
-
-
-  button.disabled = false;
-
-
-  if (error) {
-
-    console.error(error);
-
-    button.textContent =
-      "send code →";
-
-    help.textContent =
-      "could not send code";
-
-    return;
-
-  }
-
-
-  authStep = "code";
-
-  textarea.value = "";
-
-  textarea.placeholder =
-    "enter code";
-
-  button.textContent =
-    "verify →";
-
-  help.textContent =
-    "awaits code";
-
-}
-
-
-/* =========================================================
-   VERIFY CODE
-========================================================= */
-
-async function verifyCode() {
-
-  const textarea =
-    document.getElementById("entryText");
-
-
-  const code =
-    textarea.value.trim();
-
-
-  if (!code) {
-
-    return;
-
-  }
-
+async function signInWithPasskey() {
 
   const button =
     document.getElementById("sendButton");
@@ -1378,18 +1280,13 @@ async function verifyCode() {
 
 
   const {
+
     data,
+
     error
+
   } =
-    await supabaseClient.auth.verifyOtp({
-
-      email: loginEmail,
-
-      token: code,
-
-      type: "email"
-
-    });
+    await supabaseClient.auth.signInWithPasskey();
 
 
   button.disabled = false;
@@ -1400,10 +1297,12 @@ async function verifyCode() {
     console.error(error);
 
     button.textContent =
-      "verify →";
+      "unlock →";
+
 
     help.textContent =
-      "that code did not work";
+      "passkey sign in did not work";
+
 
     return;
 
@@ -1420,23 +1319,76 @@ async function verifyCode() {
 
 
 /* =========================================================
-   COMPOSER ACTION
+   REGISTER PASSKEY
 ========================================================= */
 
-function handleComposerAction() {
+async function registerPasskey() {
 
-  if (authStep === "email") {
+  const button =
+    document.getElementById("sendButton");
 
-    sendCode();
+  const help =
+    document.getElementById("loginHelp");
+
+
+  button.disabled = true;
+
+  button.textContent =
+    "registering...";
+
+
+  const {
+
+    data,
+
+    error
+
+  } =
+    await supabaseClient.auth.registerPasskey();
+
+
+  button.disabled = false;
+
+
+  if (error) {
+
+    console.error(error);
+
+    button.textContent =
+      "register passkey →";
+
+
+    help.textContent =
+      error.message;
+
 
     return;
 
   }
 
 
-  if (authStep === "code") {
+  button.textContent =
+    "passkey registered";
 
-    verifyCode();
+
+  help.textContent =
+    "you can now use your passkey";
+
+
+  setLoggedIn();
+
+}
+
+
+/* =========================================================
+   COMPOSER ACTION
+========================================================= */
+
+function handleComposerAction() {
+
+  if (authStep === "locked") {
+
+    signInWithPasskey();
 
     return;
 
@@ -1455,8 +1407,11 @@ function handleComposerAction() {
 async function loadEntries() {
 
   const {
+
     data,
+
     error
+
   } =
     await supabaseClient
 
@@ -1467,10 +1422,15 @@ async function loadEntries() {
       )
 
       .order(
+
         "created_at",
+
         {
+
           ascending: true
+
         }
+
       );
 
 
@@ -1506,13 +1466,17 @@ function renderEntries(entries) {
     const empty =
       document.createElement("div");
 
+
     empty.className =
       "empty-log";
+
 
     empty.textContent =
       "no entries yet";
 
+
     log.appendChild(empty);
+
 
     return;
 
@@ -1525,6 +1489,7 @@ function renderEntries(entries) {
 
 
   entries.forEach(
+
     function(entry) {
 
       const date =
@@ -1533,11 +1498,17 @@ function renderEntries(entries) {
 
       const month =
         date.toLocaleDateString(
+
           [],
+
           {
+
             month: "long",
+
             year: "numeric"
+
           }
+
         );
 
 
@@ -1546,8 +1517,10 @@ function renderEntries(entries) {
         const heading =
           document.createElement("div");
 
+
         heading.className =
           "month-heading";
+
 
         heading.textContent =
           month;
@@ -1570,7 +1543,9 @@ function renderEntries(entries) {
 
       const side =
         messageIndex % 2 === 0
+
           ? "left"
+
           : "right";
 
 
@@ -1621,6 +1596,7 @@ function renderEntries(entries) {
           timestamp
         );
 
+
         row.appendChild(
           message
         );
@@ -1632,6 +1608,7 @@ function renderEntries(entries) {
         row.appendChild(
           message
         );
+
 
         row.appendChild(
           timestamp
@@ -1648,6 +1625,7 @@ function renderEntries(entries) {
       messageIndex++;
 
     }
+
   );
 
 }
@@ -1661,26 +1639,41 @@ function formatTimestamp(date) {
 
   const datePart =
     date.toLocaleDateString(
+
       [],
+
       {
+
         month: "short",
+
         day: "numeric",
+
         year: "numeric"
+
       }
+
     );
 
 
   const timePart =
     date.toLocaleTimeString(
+
       [],
+
       {
+
         hour: "numeric",
+
         minute: "2-digit"
+
       }
+
     );
 
 
-  return datePart + " · " + timePart;
+  return datePart +
+         " · " +
+         timePart;
 
 }
 
@@ -1717,7 +1710,9 @@ async function sendEntry() {
 
 
   const {
+
     error
+
   } =
     await supabaseClient
 
@@ -1787,6 +1782,7 @@ function startTypingAnimation() {
 
   typingAnimationTimer =
     setInterval(
+
       function() {
 
         dots++;
@@ -1804,7 +1800,9 @@ function startTypingAnimation() {
           ".".repeat(dots);
 
       },
+
       450
+
     );
 
 }
@@ -1835,9 +1833,13 @@ function stopTypingAnimation() {
 ========================================================= */
 
 document
+
   .getElementById("entryText")
+
   .addEventListener(
+
     "input",
+
     function() {
 
       if (authStep !== "entry") {
@@ -1857,15 +1859,19 @@ document
 
       typingTimer =
         setTimeout(
+
           function() {
 
             stopTypingAnimation();
 
           },
+
           1200
+
         );
 
     }
+
   );
 
 
@@ -1874,23 +1880,32 @@ document
 ========================================================= */
 
 document
+
   .getElementById("entryText")
+
   .addEventListener(
+
     "keydown",
+
     function(event) {
 
       if (
+
         event.key === "Enter" &&
+
         !event.shiftKey
+
       ) {
 
         event.preventDefault();
+
 
         handleComposerAction();
 
       }
 
     }
+
   );
 
 
@@ -1899,6 +1914,7 @@ document
 ========================================================= */
 
 supabaseClient.auth.onAuthStateChange(
+
   function(event, session) {
 
     if (session) {
@@ -1909,17 +1925,56 @@ supabaseClient.auth.onAuthStateChange(
 
     else {
 
-      setLoginState();
+      setLockedState();
 
     }
 
   }
+
 );
 
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
+
+async function checkSession() {
+
+  const {
+
+    data,
+
+    error
+
+  } =
+    await supabaseClient.auth.getSession();
+
+
+  if (error) {
+
+    console.error(error);
+
+    setLockedState();
+
+    return;
+
+  }
+
+
+  if (data.session) {
+
+    setLoggedIn();
+
+  }
+
+  else {
+
+    setLockedState();
+
+  }
+
+}
+
 
 checkSession();
 
