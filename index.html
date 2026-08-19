@@ -49,7 +49,7 @@ body {
 
   font-family: EpiceneDisplay;
 
-  font-size: 3vw;
+  font-size: 2vw;
 
   padding: 5%;
 
@@ -58,128 +58,6 @@ body {
 }
 
 
-/* =========================================================
-   MENU
-========================================================= */
-
-.menu-button {
-
-  position: fixed;
-
-  top: 4%;
-
-  right: 5%;
-
-  z-index: 20;
-
-  border: none;
-
-  background: transparent;
-
-  padding: 0;
-
-  margin: 0;
-
-  color: #232323;
-
-  font-family: EpiceneDisplay;
-
-  font-size: 3vw;
-
-  cursor: pointer;
-
-}
-
-
-.menu-button:hover {
-
-  font-size: 5vw;
-
-}
-
-
-/* =========================================================
-   MENU PANEL
-========================================================= */
-
-.menu-panel {
-
-  position: fixed;
-
-  top: 9%;
-
-  right: 5%;
-
-  z-index: 19;
-
-  display: none;
-
-  flex-direction: column;
-
-  align-items: flex-end;
-
-  gap: 1.2vw;
-
-  text-align: right;
-
-}
-
-
-.menu-panel.open {
-
-  display: flex;
-
-}
-
-
-.menu-link {
-
-  color: #232323;
-
-  text-decoration: none;
-
-  font-size: 2.8vw;
-
-}
-
-
-.menu-link:hover {
-
-  font-size: 5vw;
-
-}
-
-
-/* =========================================================
-   MENU CLOSE
-========================================================= */
-
-.menu-close {
-
-  margin-top: 4vw;
-
-  border: none;
-
-  background: transparent;
-
-  padding: 0;
-
-  color: #232323;
-
-  font-family: EpiceneDisplay;
-
-  font-size: 2.8vw;
-
-  cursor: pointer;
-
-}
-
-
-.menu-close:hover {
-
-  font-size: 5vw;
-
-}
 
 
 /* =========================================================
@@ -188,9 +66,9 @@ body {
 
 .log-wrapper {
 
-  width: min(90%, 900px);
+  width: min(100%, 900px);
 
-  margin: 8% auto 0;
+  margin: 0% auto 0;
 
 }
 
@@ -212,7 +90,7 @@ body {
 
 .log-title {
 
-  font-size: 7vw;
+  font-size: 5vw;
 
   line-height: 1;
 
@@ -238,9 +116,9 @@ body {
 
   display: block;
 
-  width: 18vw;
+  width: 100vw;
 
-  max-width: 180px;
+
 
   height: auto;
 
@@ -299,7 +177,7 @@ body {
 
   background: #FE5D8D;
 
-  animation: onlinePulse 2s ease-in-out infinite;
+  animation: onlinePulse 22s ease-in-out infinite;
 
 }
 
@@ -333,43 +211,6 @@ body {
 }
 
 
-/* =========================================================
-   MONTH
-========================================================= */
-
-.month-heading {
-
-  width: 90%;
-
-  margin: 12% auto 5%;
-
-  text-align: center;
-
-  color: #FE5D8D;
-
-  font-size: 3vw;
-
-}
-
-
-.month-heading::before,
-.month-heading::after {
-
-  content: "";
-
-  display: inline-block;
-
-  width: 15%;
-
-  height: 1px;
-
-  background: #FE5D8D;
-
-  vertical-align: middle;
-
-  margin: 0 3%;
-
-}
 
 
 /* =========================================================
@@ -401,7 +242,7 @@ body {
 
   color: #FE5D8D;
 
-  font-size: 3vw;
+  font-size: 2vw;
 
   margin: 15% 0;
 
@@ -470,11 +311,11 @@ body {
 
   width: fit-content;
 
-  max-width: 65%;
+  max-width: 100%;
 
-  min-width: 18%;
+  min-width: 50%;
 
-  padding: 4% 5%;
+  padding: 2% 2%;
 
   box-sizing: border-box;
 
@@ -488,7 +329,7 @@ body {
 
     0 5px 12px rgba(0,0,0,.08);
 
-  text-align: left;
+  text-align: justify;
 
   line-height: 1.25;
 
@@ -575,7 +416,7 @@ body {
 
   font-family: EpiceneDisplay;
 
-  font-size: 3vw;
+  font-size: 2vw;
 
   line-height: 1.25;
 
@@ -641,7 +482,7 @@ body {
 
   font-family: EpiceneDisplay;
 
-  font-size: 2.5vw;
+  font-size: 2vw;
 
   cursor: pointer;
 
@@ -759,99 +600,58 @@ footer {
 
     padding: 5%;
 
-    font-size: 5vw;
+    font-size: 2vw;
 
   }
 
-
-  .menu-button {
-
-    top: 5%;
-
-    right: 6%;
-
-    font-size: 5vw;
-
-  }
-
-
-  .menu-panel {
-
-    top: 12%;
-
-    right: 6%;
-
-    gap: 3vw;
-
-  }
-
-
-  .menu-link,
-  .menu-close {
-
-    font-size: 5vw;
-
-  }
-
-
-  .menu-close {
-
-    margin-top: 7vw;
-
-  }
 
 
   .log-wrapper {
 
-    width: 94%;
+    width: 100%;
 
-    margin-top: 18%;
+    margin-top: 5%;
 
   }
 
 
   .log-title {
 
-    font-size: 11vw;
+    font-size: 5vw;
 
   }
 
 
-  .log-logo img {
-
-    width: 30vw;
-
-  }
 
 
   .online-status {
 
-    font-size: 4vw;
+    font-size: 2vw;
 
   }
 
 
   .month-heading {
 
-    font-size: 4vw;
+    font-size: 2vw;
 
   }
 
 
   .chat {
 
-    gap: 8vw;
+    gap: 3vw;
 
   }
 
 
   .message {
 
-    max-width: 72%;
+    max-width: 100%;
 
-    min-width: 25%;
+    min-width: 50%;
 
-    padding: 6% 7%;
+    padding: 2% 2%;
 
     border-radius: 20px;
 
@@ -860,14 +660,14 @@ footer {
 
   .timestamp {
 
-    font-size: 3vw;
+    font-size: 2vw;
 
   }
 
 
   .typing-indicator {
 
-    font-size: 4vw;
+    font-size: 2vw;
 
   }
 
@@ -876,7 +676,7 @@ footer {
 
     min-height: 120px;
 
-    font-size: 5vw;
+    font-size: 2vw;
 
     border-radius: 20px;
 
@@ -885,14 +685,14 @@ footer {
 
   .composer-button {
 
-    font-size: 5vw;
+    font-size: 2vw;
 
   }
 
 
   .login-help {
 
-    font-size: 4vw;
+    font-size: 2vw;
 
   }
 
@@ -905,84 +705,146 @@ footer {
 
 }
 
+/* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
+.scroll-wrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 2vw;
+  padding: 2vw 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: calc(10 * 1h);
+}
+
+.product {
+  flex: 0 0 auto;
+  width: 35vw;
+  scroll-snap-align: start;
+  text-align: left;
+  
+}
+
+.product-info {
+
+  font-size: 1vw;
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #FFFDD0;
+  display: block;
+  border-radius: 6px;
+}
+
+
+
 </style>
 
 </head>
 
 
 <body>
+  <!-- ===== HORIZONTAL SCROLL ===== -->
+<div class="scroll-wrap">
+
+<div class="product">
+  <a href="https://siliconvenus.online/store">
+  <img src="navi/store.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+
+</div>
+
+<div class="product">
+  <a href="https://kick.com/venusili">
+  <img src="navi/kick.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+</div>
+
+<div class="product">
+  <a href="https://www.patreon.com/cw/venusili">
+  <img src="navi/patreon.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+</div>
+
+<div class="product">
+  <a href="https://instagram.com/silimakestuff">
+  <img src="navi/ig.png" alt=""></a>
+
+  <div class="product-info">
+   
+
+  </div>
+</div>
+
+<div class="product">
+  <a href="hhttps://www.youtube.com/@venusili">
+  <img src="navi/youtube.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+</div>
+
+<div class="product">
+  <img src="navi/about.png" alt="">
+
+  <div class="product-info">
+    /about <br>
+    vesica = musical identtiy of silicon venus <br>
+      it's been a couple of years experimenting \ remixing ai sounds \ songwriting <br>
+
+      venusili’s 1st experience hand-knitting dates back to 2020, took a course @ Parsons New School of Design during her senior year. The intrigue never dissipated. Initially trained as a communication designer (holds a BFA in communication design & AFA in graphic design + fine arts). <br> <br>
+
+      webdesign by silicon venus <br>
+      coded by venus silicon 
+
+  </div>
+
+</div>
+
+<div class="product">
+  <a href="https://siliconvenus.online/info">
+  <img src="navi/info.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+</div>
+
+<div class="product">
+  <a href="https://siliconvenus.online/giftme">
+  <img src="navi/giftme.png" alt=""></a>
+
+  <div class="product-info">
+    
+
+  </div>
+</div>
+
+ 
+
+    
+</div>
 
 
-<!-- =======================================================
-     MENU
-======================================================== -->
-
-<button
-  id="menuButton"
-  class="menu-button"
-  onclick="toggleMenu()"
->
-
-  menu
-
-</button>
-
-
-<nav
-  id="menuPanel"
-  class="menu-panel"
->
-
-  <a
-    href="store.html"
-    class="menu-link"
-  >
-    store
-  </a>
-
-
-  <a
-    href="socials.html"
-    class="menu-link"
-  >
-    socials
-  </a>
-
-
-  <a
-    href="about.html"
-    class="menu-link"
-  >
-    about
-  </a>
-
-
-  <a
-    href="information.html"
-    class="menu-link"
-  >
-    information
-  </a>
-
-
-  <a
-    href="giftme.html"
-    class="menu-link"
-  >
-    gift me
-  </a>
-
-
-  <button
-    class="menu-close"
-    onclick="closeMenu()"
-  >
-
-    X
-
-  </button>
-
-</nav>
 
 
 <!-- =======================================================
@@ -994,9 +856,7 @@ footer {
 
 <header class="log-header">
 
-  <h1 class="log-title">
-    convo material log
-  </h1>
+
 
 
   <div class="log-logo">
@@ -1008,6 +868,9 @@ footer {
 
   </div>
 
+  <h1 class="log-title">
+    material log conversationally
+  </h1>
 
   <div class="online-status">
 
@@ -1018,28 +881,6 @@ footer {
   </div>
 
 </header>
-
-
-<!-- =======================================================
-     CHAT
-======================================================== -->
-
-<div
-  id="workLog"
-  class="chat"
->
-
-  <div
-    class="empty-log"
-    id="emptyLog"
-  >
-
-    no entries yet
-
-  </div>
-
-</div>
-
 
 <!-- =======================================================
      TYPING INDICATOR
@@ -1093,6 +934,44 @@ footer {
 </div>
 
 </section>
+
+<!-- =======================================================
+     CHAT
+======================================================== -->
+
+<div
+  id="workLog"
+  class="chat"
+>
+
+  <div
+    class="empty-log"
+    id="emptyLog"
+  >
+
+    no entries yet
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     TYPING INDICATOR
+======================================================== -->
+
+<div
+  id="typingIndicator"
+  class="typing-indicator"
+>
+
+  typing.
+
+</div>
+
+
+
+
 
 
 </main>
@@ -1592,7 +1471,7 @@ async function loadEntries() {
 
         {
 
-          ascending: true
+          ascending: false
 
         }
 
@@ -2100,6 +1979,9 @@ supabaseClient.auth.onAuthStateChange(
 ========================================================= */
 
 checkSession();
+
+
+
 
 </script>
 
