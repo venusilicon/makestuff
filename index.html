@@ -1,713 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>silicon venus</title>
-
+<title>store</title>
+  <!-- Google Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   FONT
-========================================================= */
-
-@font-face {
-
-  font-family: EpiceneDisplay;
-
-  src: url('EpiceneDisplay-Light.otf')
-       format('opentype');
-
-}
-
-
 /* =========================================================
    BASE
 ========================================================= */
 
 html,
 body {
-
-  max-width: 100%;
-
+  margin: 0;
+  padding: 0;
+  width: 100%;
   overflow-x: hidden;
-
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-
-  margin: 0;
-
+  font-family: "Inter", sans-serif;
   background: #e8b17b;
-
-  color: #0073ce;
-
-  font-family: EpiceneDisplay;
-
-  font-size: 2vw;
-
-  padding: 5%;
-
-  box-sizing: border-box;
-
-}
-
-
-
-
-/* =========================================================
-   MATERIAL LOG
-========================================================= */
-
-.log-wrapper {
-
-  width: min(100%, 900px);
-
-  margin: 0% auto 0;
-
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.log-header {
-
-  width: 100%;
-
-  margin: 0 0 10%;
-
-  text-align: left;
-
-}
-
-
-.log-title {
-
-  font-size: 5vw;
-
-  line-height: 1;
-
-  margin: 0;
-
-}
-
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.log-logo {
-
-  margin-top: 2%;
-
-  perspective: 800px;
-
-}
-
-
-.log-logo img {
-
-  display: block;
-
-  width: 100vw;
-
-
-
-  height: auto;
-
-  transform-style: preserve-3d;
-
-  animation: logoSpin 22s linear infinite;
-
-}
-
-
-@keyframes logoSpin {
-
-  from {
-
-    transform: rotateY(0deg);
-
-  }
-
-  to {
-
-    transform: rotateY(360deg);
-
-  }
-
-}
-
-
-/* =========================================================
-   ONLINE STATUS
-========================================================= */
-
-.online-status {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: .7vw;
-
-  margin-top: 1.5%;
-
-  color: #FE5D8D;
-
-  font-size: 2vw;
-
-}
-
-
-.online-dot {
-
-  width: .65em;
-
-  height: .65em;
-
-  border-radius: 50%;
-
-  background: #FE5D8D;
-
-  animation: onlinePulse 22s ease-in-out infinite;
-
-}
-
-
-@keyframes onlinePulse {
-
-  0% {
-
-    opacity: 1;
-
-    transform: scale(1);
-
-  }
-
-  50% {
-
-    opacity: .35;
-
-    transform: scale(.72);
-
-  }
-
-  100% {
-
-    opacity: 1;
-
-    transform: scale(1);
-
-  }
-
-}
-
-
-
-
-/* =========================================================
-   CHAT
-========================================================= */
-
-.chat {
-
-  width: 100%;
-
-  margin: 0 auto;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 5vw;
-
-}
-
-
-/* =========================================================
-   EMPTY STATE
-========================================================= */
-
-.empty-log {
-
-  text-align: center;
-
-  color: #FE5D8D;
-
-  font-size: 2vw;
-
-  margin: 15% 0;
-
-}
-
-
-/* =========================================================
-   MESSAGE ROW
-========================================================= */
-
-.message-row {
-
-  width: 100%;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  gap: 1.5vw;
-
-}
-
-
-.message-row.left {
-
-  justify-content: flex-start;
-
-}
-
-
-.message-row.right {
-
-  justify-content: flex-end;
-
-}
-
-
-/* =========================================================
-   TIMESTAMP
-========================================================= */
-
-.timestamp {
-
-  writing-mode: vertical-rl;
-
-  transform: rotate(180deg);
-
-  color: #FE5D8D;
-
-  font-size: 1.7vw;
-
-  white-space: nowrap;
-
-  letter-spacing: .03em;
-
-  flex-shrink: 0;
-
-}
-
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-.message {
-
-  width: fit-content;
-
-  max-width: 100%;
-
-  min-width: 50%;
-
-  padding: 2% 2%;
-
-  box-sizing: border-box;
-
-  background: #e8b17b;
-
-  border-radius: 24px;
-
-  box-shadow:
-
-    0 18px 35px rgba(0,0,0,.18),
-
-    0 5px 12px rgba(0,0,0,.08);
-
-  text-align: justify;
-
-  line-height: 1.25;
-
-}
-
-
-.message-text {
-
-  margin: 0;
-
-  white-space: pre-wrap;
-
-  word-wrap: break-word;
-
-}
-
-
-/* =========================================================
-   TYPING INDICATOR
-========================================================= */
-
-.typing-indicator {
-
-  min-height: 1.2em;
-
-  margin-top: 5%;
-
-  color: #8f3d4d;
-
-  font-size: 2vw;
-
-  opacity: 0;
-
-  transition: opacity .2s ease;
-
-}
-
-
-.typing-indicator.visible {
-
-  opacity: 1;
-
-}
-
-
-/* =========================================================
-   COMPOSER
-========================================================= */
-
-.composer-wrapper {
-
-  width: 100%;
-
-  margin: 8% auto 5%;
-
-}
-
-
-/* =========================================================
-   TEXT BOX
-========================================================= */
-
-.composer-textarea {
-
-  display: block;
-
-  width: 100%;
-
-  min-height: 130px;
-
-  box-sizing: border-box;
-
-  padding: 5%;
-
-  background: #e8b17b;
-
-  color: #FE5D8D;
-
-  border: none;
-
-  outline: none;
-
-  border-radius: 24px;
-
-  font-family: EpiceneDisplay;
-
-  font-size: 2vw;
-
-  line-height: 1.25;
-
-  resize: vertical;
-
-  box-shadow:
-
-    0 18px 35px rgba(0,0,0,.18),
-
-    0 5px 12px rgba(0,0,0,.08);
-
-}
-
-
-.composer-textarea::placeholder {
-
-  color: #FE5D8D;
-
-  opacity: .65;
-
-}
-
-
-.composer-textarea:focus {
-
-  box-shadow:
-
-    0 22px 42px rgba(0,0,0,.22),
-
-    0 6px 15px rgba(0,0,0,.1);
-
-}
-
-
-/* =========================================================
-   COMPOSER CONTROLS
-========================================================= */
-
-.composer-controls {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-end;
-
-  margin-top: 3%;
-
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.composer-button {
-
-  border: none;
-
-  background: transparent;
-
   color: #232323;
-
-  font-family: EpiceneDisplay;
-
-  font-size: 2vw;
-
-  cursor: pointer;
-
-  padding: 1%;
-
-}
-
-
-.composer-button:hover {
-
-  font-size: 5vw;
-
-}
-
-
-.composer-button:disabled {
-
-  cursor: default;
-
-  opacity: .6;
-
-}
-
-
-/* =========================================================
-   LOGIN STATE
-========================================================= */
-
-.login-help {
-
-  margin-top: 3%;
-
-  color: #0073ce;
-
-  font-size: 2vw;
-
-  opacity: .8;
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-  text-align: right;
-
-  margin-top: 20%;
-
-  margin-right: 5%;
-
-  font-size: 2.5vw;
-
-  color: #0073ce;
-
-}
-
-/* =========================================================
-   LIVESTREAM ARCHIVE
-========================================================= */
-
-.livestream-archive {
-
-  width: 100%;
-
-  margin-top: 8%;
-
-  box-sizing: border-box;
-
-}
-
-
-.livestream-archive-text {
-
-  width: 100%;
-
-  color: #FFFDD0;
-
-  font-size: 3vw;
-
-  text-align: justify;
-
-  text-justify: inter-word;
-
-  line-height: 1.25;
-
-}
-
-
-.livestream-archive-text a {
-
-  color: #FFFDD0;
-
-  font-size: 3vw;
-
-}
-
-
-.livestream-archive-text a:hover {
-
-  font-size: 3.5vw;
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-  body {
-
-    padding: 5%;
-
-    font-size: 2vw;
-
-  }
-
-
-
-  .log-wrapper {
-
-    width: 100%;
-
-    margin-top: 5%;
-
-  }
-
-
-  .log-title {
-
-    font-size: 5vw;
-
-  }
-
-
-
-
-  .online-status {
-
-    font-size: 2vw;
-
-  }
-
-
-  .month-heading {
-
-    font-size: 2vw;
-
-  }
-
-
-  .chat {
-
-    gap: 3vw;
-
-  }
-
-
-  .message {
-
-    max-width: 100%;
-
-    min-width: 50%;
-
-    padding: 2% 2%;
-
-    border-radius: 20px;
-
-  }
-
-
-  .timestamp {
-
-    font-size: 2vw;
-
-  }
-
-
-  .typing-indicator {
-
-    font-size: 2vw;
-
-  }
-
-
-  .composer-textarea {
-
-    min-height: 120px;
-
-    font-size: 2vw;
-
-    border-radius: 20px;
-
-  }
-
-
-  .composer-button {
-
-    font-size: 2vw;
-
-  }
-
-
-  .login-help {
-
-    font-size: 2vw;
-
-  }
-
-
-  footer {
-
-    font-size: 4vw;
-
-  }
-
+  font-size: 1.5vw;
+  padding: 5%;
+  letter-spacing: -0.8px;
 }
 
 /* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
 .scroll-wrap {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
@@ -722,422 +55,430 @@ footer {
   flex: 0 0 auto;
   width: 35vw;
   scroll-snap-align: start;
-  text-align: left;
-  
-}
-
-.product-info {
-
-  font-size: 1vw;
+  text-align: justify;
 }
 
 .product img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  background: #FFFDD0;
+  background: #232323;
   display: block;
   border-radius: 6px;
 }
 
+.product-info {
+  line-height: 1.25;
+}
 
 
+a {
+  color: #232323;;
+}
+
+a:hover {
+  font-size: 3vw;
+}
+
+.livestream-history {
+text-align: justify;
+  text-justify: inter-word;
+}
+
+/* =========================================================
+   MATERIAL LOG
+========================================================= */
+.log-wrapper {
+  width: min(100%, 900px);
+  height: 70vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   CHAT
+========================================================= */
+.chat {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+.empty-log {
+  text-align: justify;
+  color: #232323;
+  font-size: 1.5vw;
+  letter-spacing: -0.8px;
+  margin: 15% 0;
+}
+/* =========================================================
+   MESSAGE ROW
+========================================================= */
+.message-row {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 1vw;
+}
+
+.message-row.left {
+  justify-content: flex-start;
+}
+
+.message-row.right {
+  justify-content: flex-end;
+}
+/* =========================================================
+   TIMESTAMP
+========================================================= */
+.timestamp {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #232323;
+  font-size: 1vw;
+  letter-spacing: -0.8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+/* =========================================================
+   MESSAGE
+========================================================= */
+.message {
+  width: fit-content;
+  max-width: 100%;
+  padding: 2% 2%;
+  box-sizing: border-box;
+  background: #e8b17b;
+  text-align: justify;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.message-text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/* =========================================================
+   COMPOSER
+========================================================= */
+.composer-wrapper {
+  width: 90%;
+  margin: 8% auto 5%;
+}
+/* =========================================================
+   TEXT BOX
+========================================================= */
+.composer-textarea {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding: 5%;
+  background: #e8b17b;
+  color: #232323;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5vw;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  resize: vertical;
+
+}
+
+.composer-textarea::placeholder {
+  color: #232323;
+}
+
+
+/* =========================================================
+   COMPOSER CONTROLS
+========================================================= */
+.composer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* =========================================================
+   BUTTON
+========================================================= */
+.composer-button {
+  border: none;
+  background: transparent;
+  color: #232323;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5vw;
+  letter-spacing: -0.8px;
+  cursor: pointer;
+  padding: 1%;
+}
+
+.composer-button:hover {
+  font-size: 3vw;
+}
+
+.composer-button:disabled {
+  cursor: default;
+  opacity: .6;
+}
+/* =========================================================
+   LOGIN STATE
+========================================================= */
+.login-help {
+  color: #232323;
+  font-size: 1.5vw;
+  letter-spacing: -0.8px;
+  opacity: .8;
+}
+/* =========================================================
+   LOGO
+========================================================= */
+.log-logo {
+  margin-top: 2%;
+  perspective: 800px;
+}
+
+.log-logo img {
+  display: block;
+  width: 100vw;
+  height: auto;
+  transform-style: preserve-3d;
+  animation: logoSpin 22s linear infinite;
+}
+
+@keyframes logoSpin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  text-align: right;
+  margin-top: 20%;
+  font-size: 1.5vw;
+  color: #232323;
+  letter-spacing: -0.8px;
+}
 </style>
-
 </head>
 
-
 <body>
-  <!-- ===== HORIZONTAL SCROLL ===== -->
+<!-- =======================================================
+     navigation
+======================================================== -->
+
 <div class="scroll-wrap">
-
-<div class="product">
-  <a href="https://siliconvenus.online/store">
-  <img src="navi/store.png" alt=""></a>
-
-  <div class="product-info">
-    
-
+  <div class="product">
+    <a href="https://kick.com/venusili">
+    <img src="kick.png" alt=""></a>
   </div>
 
-</div>
 
-<div class="product">
-  <a href="https://kick.com/venusili">
-  <img src="navi/kick.png" alt=""></a>
-
-  <div class="product-info">
-    
-
-  </div>
-</div>
-
-
-<div class="product">
-  <a href="https://instagram.com/silimakestuff">
-  <img src="navi/ig.png" alt=""></a>
-
-  <div class="product-info">
-   
-
-  </div>
-</div>
-
-<div class="product">
-  <a href="hhttps://www.youtube.com/@venusili">
-  <img src="navi/youtube.png" alt=""></a>
-
-  <div class="product-info">
-    
-
-  </div>
-</div>
-
-<div class="product">
-  <img src="navi/about.png" alt="">
-
-  <div class="product-info">
-    /about <br>
-    vesica = musical identtiy of silicon venus <br>
-      it's been a couple of years experimenting \ remixing ai sounds \ songwriting <br>
-
-      venusili’s 1st experience hand-knitting dates back to 2020, took a course @ Parsons New School of Design during her senior year. The intrigue never dissipated. Initially trained as a communication designer (holds a BFA in communication design & AFA in graphic design + fine arts). <br> <br>
-
-      webdesign by silicon venus <br>
-      coded by venus silicon 
-
+  <div class="product">
+    <a href="https://instagram.com/silimakestuff">
+    <img src="ig.png" alt=""></a>
   </div>
 
-</div>
+  <div class="product">
+    <a href="https://www.youtube.com/@venusili">
+    <img src="youtube.png" alt=""></a>
+  </div>
 
-<div class="product">
-  <a href="https://siliconvenus.online/info">
-  <img src="navi/info.png" alt=""></a>
+  <div class="product">
+    <a href="https://siliconvenus.online/info">
+    <img src="info.png" alt=""></a>
+  </div>
 
-  <div class="product-info">
-    
-
+    <div class="product">
+    <a href="https://siliconvenus.online/sound">
+    <img src="sound.png" alt=""></a>
   </div>
 </div>
-
-<div class="product">
-  <a href="https://siliconvenus.online/giftme">
-  <img src="navi/giftme.png" alt=""></a>
-
-  <div class="product-info">
-    
-
-  </div>
-</div>
-
- 
-
-    
-</div>
-
-
-
 
 <!-- =======================================================
      MATERIAL LOG
 ======================================================== -->
-
+material log data
 <main class="log-wrapper">
-
-
-<header class="log-header">
-
-
-
-
-  <div class="log-logo">
-
-    <img
-      src="logo.png"
-      alt="silicon venus logo"
-    >
-
-  </div>
-
-  <h1 class="log-title">
-    material log data
-  </h1>
-
-  <div class="online-status">
-
-    <span class="online-dot"></span>
-
-    <span>online</span>
-
-  </div>
-
-</header>
-
-<!-- =======================================================
-     TYPING INDICATOR
-======================================================== -->
-
-<div
-  id="typingIndicator"
-  class="typing-indicator"
->
-
-  typing.
-
-</div>
-
 
 <!-- =======================================================
      COMPOSER
 ======================================================== -->
-
 <section class="composer-wrapper">
-
-
-<textarea
-  id="entryText"
-  class="composer-textarea"
-  placeholder="passkey required"
-  readonly
-></textarea>
-
-
-<div
-  id="loginHelp"
-  class="login-help"
-></div>
-
-
+<textarea id="entryText" class="composer-textarea" placeholder="passkey required" readonly></textarea>
+<div id="loginHelp" class="login-help"></div>
 <div class="composer-controls">
-
-
-<button
-  id="sendButton"
-  class="composer-button"
-  onclick="handleComposerAction()"
->
-
-  unlock →
-
+<button id="sendButton" class="composer-button" onclick="handleComposerAction()">unlock
 </button>
-
-
 </div>
-
 </section>
 
 <!-- =======================================================
      CHAT
 ======================================================== -->
-
 <div
   id="workLog"
   class="chat"
 >
-
   <div
     class="empty-log"
     id="emptyLog"
   >
-
-    no entries yet
-
+    empty log
   </div>
-
 </div>
-
-
-<!-- =======================================================
-     TYPING INDICATOR
-======================================================== -->
-
-<div
-  id="typingIndicator"
-  class="typing-indicator"
->
-
-  typing.
-
-</div>
-
-
-
-
-
-
 </main>
 
-
 <!-- =======================================================
-     LIVESTREAM ARCHIVE
+     livestream history
 ======================================================== -->
+<div class="livestream-history">
+  august 2026 <br>
 
-<section class="livestream-archive">
-
-  <div class="livestream-archive-text">
-
-    <!-- your existing livestream archive content goes here -->
-
-    august 2026 <br>
-
-<a href="https://youtu.be/8VpLPsDtuDs" target="_blank" class="item">
+<a href="https://youtu.be/8VpLPsDtuDs" target="_blank">
 karmatic roller dpi 100%, untitled white high arch dpi still in progress, not nearly 50%</a>
    karmatic color palette: white, plum, heath heather
-
  <br>
 
-     <a href="https://youtu.be/erbPYLT05U0" target="_blank" class="item">
+     <a href="https://youtu.be/erbPYLT05U0" target="_blank">
 ndpi color scheme: white, plum + another accent color still in decision mode</a>
-   
 it's between berry & heath heather. probably going to go with the latter
  <br>
 
- <a href="https://youtu.be/locEJKytv6c" target="_blank" class="item">
+ <a href="https://youtu.be/locEJKytv6c" target="_blank">
 calming measures dpi's whole vibe changed so new title: foreshadow then unleashed dpi complete</a>
    finally got a new domain for my website. spent some time on the side coding the homepage with the now live convo material log
 
  <br>
 
- <a href="https://youtu.be/Qx5-p51bEb0" target="_blank" class="item">
+ <a href="https://youtu.be/Qx5-p51bEb0" target="_blank">
 knit 4 rust rects + some silver squares, playing family sort, writing lyrics
  </a>
-   
 a v sleepy stream
  <br>
 
- <a href="https://youtu.be/9RB57jJ9Ng0" target="_blank" class="item">4 upright pieces attached to torus dpi gets titled calming measures, finished its cylindricals</a>
+ <a href="https://youtu.be/9RB57jJ9Ng0" target="_blank">4 upright pieces attached to torus dpi gets titled calming measures, finished its cylindricals</a>
    ran out of the bernat vintage white in my inventory & decided to use bernat beach foam instead which i think added some delight to the original color palette
  <br>
 
-
- <a href="https://youtu.be/RejCdKpBmRc" target="_blank" class="item">black \ dark brown dpi gets named: 8:31 + gets completed. parts leftover turn into a new dpi</a>
+ <a href="https://youtu.be/RejCdKpBmRc" target="_blank">black \ dark brown dpi gets named: 8:31 + gets completed. parts leftover turn into a new dpi</a>
    parts leftover, these black "tags" using along with vintage white, rust, silver yarn to form new dpi untitled +  <a href="https://www.patreon.com/venusili/posts/venus-linear-log-166372329?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link" target="_blank" class="item">new series started on my Patreon</a>
  <br>
 
- <a href="https://youtu.be/_lObxGU11mU" target="_blank" class="item">short stream-drained, work on black \ dark brown untitled dpi</a>
+ <a href="https://youtu.be/_lObxGU11mU" target="_blank">short stream-drained, work on black \ dark brown untitled dpi</a>
    ~90% compeletion
  <br>
 
- <a href="https://youtu.be/D1l3Q3VfUB8" target="_blank" class="item">started new dpi untitled w\ dark brown + black color schema</a>
+ <a href="https://youtu.be/D1l3Q3VfUB8" target="_blank">started new dpi untitled w\ dark brown + black color schema</a>
    using last of Michael's discontinued chenille home slim black :( :)
  <br>
 
-   <a href="https://youtu.be/bVIdfk6IqnI" target="_blank" class="item">play point out, knit start-finish stiftly dpi</a>
+   <a href="https://youtu.be/bVIdfk6IqnI" target="_blank">play point out, knit start-finish stiftly dpi</a>
    US 5.50mm with bernat blanket super bulky fog twist
  <br>
 
 
-  <a href="https://youtu.be/LExlSaCo14A" target="_blank" class="item">playing point out, some wood block jam and knitting white untitled dpi</a>
+  <a href="https://youtu.be/LExlSaCo14A" target="_blank">playing point out, some wood block jam and knitting white untitled dpi</a>
    sip
  <br>
 
- <a href="https://youtu.be/WNCON4laZfM" target="_blank" class="item">vesi.1 workflow to 100% completion, a silver of time to work on the off-white untitled dpi</a>
+ <a href="https://youtu.be/WNCON4laZfM" target="_blank">vesi.1 workflow to 100% completion, a silver of time to work on the off-white untitled dpi</a>
    made a IG Reel of vesi.1 dpi on stream. have visual draft in head how white untitled dpi will turn out
  <br>
 
- <a href="https://youtu.be/0hfsnCfVOeQ" target="_blank" class="item">vesi.1 knitting sip, decided to not attach white design w\ v.1, became its own dpi</a>
+ <a href="https://youtu.be/0hfsnCfVOeQ" target="_blank">vesi.1 knitting sip, decided to not attach white design w\ v.1, became its own dpi</a>
    vesi.1 sip, spontaneous dpi formed untitled 
-   
- <br>
+   <br>
 
- <a href="https://youtu.be/PsDKBTKbA0I" target="_blank" class="item">vesi.1 knitting</a>
-   sip
+ <a href="https://youtu.be/PsDKBTKbA0I" target="_blank">vesi.1 knitting</a>
+   sip 
+   <br>
 
- <br>
-
-  <a href="https://youtu.be/XxaAW6HxlBE" target="_blank" class="item">completion fizz + new dpi titled eight residual, vesi.1 in still progress</a>
+  <a href="https://youtu.be/XxaAW6HxlBE" target="_blank">completion fizz + new dpi titled eight residual, vesi.1 in still progress</a>
    while putting together fizz dpi spontaneously new dpi titled eight residual came into fruition
 
   <br><br>
  july 2026 <br>
 
-
-  <a href="https://youtu.be/6IzFX0fhDgo" target="_blank" class="item">knit vesi.1 dpi progression</a>
+  <a href="https://youtu.be/6IzFX0fhDgo" target="_blank">knit vesi.1 dpi progression</a>
    sip
 
  <br>
 
-    <a href="https://youtu.be/5EHCs0-XD6s" target="_blank" class="item">knit w\ la bien aimee mohair silk + premier yarns anti-pilling african violet vesi.1 dpi workflow</a>
+    <a href="https://youtu.be/5EHCs0-XD6s" target="_blank">knit w\ la bien aimee mohair silk + premier yarns anti-pilling african violet vesi.1 dpi workflow</a>
    us000 worsted anti-pilling polyester + mohair silk dpi
 
  <br>
 
-   <a href="https://youtu.be/WhUiu0xg4d4" target="_blank" class="item">handknit fizz dpi 70% progression</a>
+   <a href="https://youtu.be/WhUiu0xg4d4" target="_blank">handknit fizz dpi 70% progression</a>
    still in progress
 
  <br>
 
-
-   <a href="https://youtu.be/0l6G8WMeOO8" target="_blank" class="item">knit fizz dpi w\ loops & threads ecochenille + purl chenille, bernat sheepy & premier white chenille</a>
+   <a href="https://youtu.be/0l6G8WMeOO8" target="_blank">knit fizz dpi w\ loops & threads ecochenille + purl chenille, bernat sheepy & premier white chenille</a>
    started new dpi tilted fizz, still in progress
 
  <br>
 
-
-   <a href="https://youtu.be/LSZDUH4_s_0" target="_blank" class="item">livestream garment knit, over the moon cowl halter top to completion, original design</a>
+   <a href="https://youtu.be/LSZDUH4_s_0" target="_blank">livestream garment knit, over the moon cowl halter top to completion, original design</a>
    finished: over the moon cowl halter top
 
  <br>
 
-
-
-
-
-   <a href="https://youtu.be/OiKm07uZRiU" target="_blank" class="item">livestream knit, finished 3 keychain charms, started \ in progress 1 kc</a> finished: vesica piscis deconstructed keychain charm, blobbing asking wanting for more keychain charm, masculine nose on a face of female keychain charm + started \ in progress: 26 rect iteration.5 keychain charm
+   <a href="https://youtu.be/OiKm07uZRiU" target="_blank">livestream knit, finished 3 keychain charms, started \ in progress 1 kc</a> finished: vesica piscis deconstructed keychain charm, blobbing asking wanting for more keychain charm, masculine nose on a face of female keychain charm + started \ in progress: 26 rect iteration.5 keychain charm
 
  <br>
-  <a href="https://youtu.be/L6-QsOJTXK8" target="_blank" class="item">livestream knit, final final touches to some pieces from last batch. cooked up something w\ leftover</a> final final touches to: the spline asks you to slice it right dpi, hypoglyglatic dpi, toxin fold keychain charm, mush mini upright storage keychain charm, midnight’s depiction dpi, tagged loyalty dpi + started \ in progress: deconstructed vesica piscis keychain charm
+  <a href="https://youtu.be/L6-QsOJTXK8" target="_blank">livestream knit, final final touches to some pieces from last batch. cooked up something w\ leftover</a> final final touches to: the spline asks you to slice it right dpi, hypoglyglatic dpi, toxin fold keychain charm, mush mini upright storage keychain charm, midnight’s depiction dpi, tagged loyalty dpi + started \ in progress: deconstructed vesica piscis keychain charm
  <br>
- <a href="https://www.youtube.com/watch?v=YuIPEcPMdBY" target="_blank" class="item">livestream knit, keychain charm making</a> finished smangly loti furri keychain charm <br>
+ <a href="https://www.youtube.com/watch?v=YuIPEcPMdBY" target="_blank">livestream knit, keychain charm making</a> finished smangly loti furri keychain charm <br>
 
    <br><br>
 
  june 2026 <br>
-<a href="https://www.youtube.com/watch?v=4lqwqiKMmCo" target="_blank" class="item">livestream knit, experimenting with flatness, weight distribution & composition</a> started interactive.2 dpi <br>
-<a href="https://www.youtube.com/watch?v=upPup04_Lmg&t=694s" target="_blank" class="item">livestream knit, adding final touches to fidget dpi</a> finished interactive.1 dpi <br>
-<a href="https://www.youtube.com/watch?v=JIY7XRkZkBw&t=128s" target="_blank" class="item">livestream knit, fidget dpi creating</a> in progress interactive.1 dpi <br>
-<a href="http://youtu.be/tkIZ0PQNNX0" target="_blank" class="item">livestream knit, final touches to knotty toxic mold dpi then starting from scratch</a> finished knotty toxic mold dpi, started interactive.1 dpi <br>
-<a href="https://youtu.be/UvdSKDzfwbI" target="_blank" class="item">livestream knit, wrapping up working with pre-knitted</a> finished mush mini upright storage keychain charm, the bird is a consumerist dpi, slippery merchant dpi. 90% completed knotty toxic mold dpi <br>
-<a href="https://www.youtube.com/watch?v=sWY9yCvt5sk&t=14386s" target="_blank" class="item">livestream knit, generating new with pre-knitted</a> finished seasickedness dpi, ruffled affairs dpi, the spline asks you to slice it right dpi. started knotty toxic mold dpi <br>
-<a href="https://www.youtube.com/watch?v=P6ZyOEMNaFI" target="_blank" class="item">livestream knit, going thru pre-made knitted pieces</a> finished dragged aside dpi <br>
-<a href="https://www.youtube.com/watch?v=yKy9DU4ezt4&t=141s" target="_blank" class="item">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.4 keychain charm, started on unfinished 1 <br>
+<a href="https://www.youtube.com/watch?v=4lqwqiKMmCo" target="_blank">livestream knit, experimenting with flatness, weight distribution & composition</a> started interactive.2 dpi <br>
+<a href="https://www.youtube.com/watch?v=upPup04_Lmg&t=694s" target="_blank">livestream knit, adding final touches to fidget dpi</a> finished interactive.1 dpi <br>
+<a href="https://www.youtube.com/watch?v=JIY7XRkZkBw&t=128s" target="_blank">livestream knit, fidget dpi creating</a> in progress interactive.1 dpi <br>
+<a href="http://youtu.be/tkIZ0PQNNX0" target="_blank">livestream knit, final touches to knotty toxic mold dpi then starting from scratch</a> finished knotty toxic mold dpi, started interactive.1 dpi <br>
+<a href="https://youtu.be/UvdSKDzfwbI" target="_blank">livestream knit, wrapping up working with pre-knitted</a> finished mush mini upright storage keychain charm, the bird is a consumerist dpi, slippery merchant dpi. 90% completed knotty toxic mold dpi <br>
+<a href="https://www.youtube.com/watch?v=sWY9yCvt5sk&t=14386s" target="_blank">livestream knit, generating new with pre-knitted</a> finished seasickedness dpi, ruffled affairs dpi, the spline asks you to slice it right dpi. started knotty toxic mold dpi <br>
+<a href="https://www.youtube.com/watch?v=P6ZyOEMNaFI" target="_blank">livestream knit, going thru pre-made knitted pieces</a> finished dragged aside dpi <br>
+<a href="https://www.youtube.com/watch?v=yKy9DU4ezt4&t=141s" target="_blank">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.4 keychain charm, started on unfinished 1 <br>
 <a href="" target="_blank" class="item">livestream knit, 26 rectangle keychain charms</a> started 26 rect iteration.4 keychain charm <br>
- <a href="https://www.youtube.com/watch?v=IWI6lDME4R0&t=3s" target="_blank" class="item">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.3 keychain charm, started on .4 <br>
- <a href="https://www.youtube.com/watch?v=UYRkld5DlV8&t=18301s" target="_blank" class="item">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.1 + .2, started on .3 keychain charms
-
-
-
-
-
+ <a href="https://www.youtube.com/watch?v=IWI6lDME4R0&t=3s" target="_blank">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.3 keychain charm, started on .4 <br>
+ <a href="https://www.youtube.com/watch?v=UYRkld5DlV8&t=18301s" target="_blank">livestream knit, 26 rectangle keychain charms</a> finished 26 rect iteration.1 + .2, started on .3 keychain charms
+</div>
+<!-- =======================================================
+     logo
+======================================================== -->
+  <div class="log-logo">
+    <img src="logo.png" alt="silicon venus logo">
   </div>
-
-</section>
-
-
 <!-- =======================================================
      FOOTER
 ======================================================== -->
-
 <footer>
-
   © 2026 venusilicon
-
 </footer>
 
-
-<!-- =======================================================
+<!--  =======================================================
      SUPABASE
 ======================================================== -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
 <script>
-
 /* =========================================================
    SUPABASE CONFIG
 ========================================================= */
-
 const SUPABASE_URL =
   "https://ttatoxpeeifoyenlbtro.supabase.co";
 
@@ -1181,85 +522,6 @@ let typingTimer = null;
 let typingAnimationTimer = null;
 
 
-/* =========================================================
-   MENU
-========================================================= */
-
-function toggleMenu() {
-
-  const panel =
-    document.getElementById("menuPanel");
-
-  const button =
-    document.getElementById("menuButton");
-
-
-  panel.classList.toggle("open");
-
-
-  if (panel.classList.contains("open")) {
-
-    button.style.visibility = "hidden";
-
-  }
-
-  else {
-
-    button.style.visibility = "visible";
-
-  }
-
-}
-
-
-function closeMenu() {
-
-  document
-    .getElementById("menuPanel")
-    .classList.remove("open");
-
-
-  document
-    .getElementById("menuButton")
-    .style.visibility = "visible";
-
-}
-
-
-/* =========================================================
-   CLOSE MENU OUTSIDE
-========================================================= */
-
-document.addEventListener(
-
-  "click",
-
-  function(event) {
-
-    const panel =
-      document.getElementById("menuPanel");
-
-    const button =
-      document.getElementById("menuButton");
-
-
-    if (
-
-      panel.classList.contains("open") &&
-
-      !panel.contains(event.target) &&
-
-      !button.contains(event.target)
-
-    ) {
-
-      closeMenu();
-
-    }
-
-  }
-
-);
 
 
 /* =========================================================
@@ -1330,7 +592,7 @@ function setLoginState() {
   button.disabled = false;
 
   button.textContent =
-    "unlock →";
+    "unlock";
 
   help.textContent =
     "";
@@ -1361,14 +623,14 @@ function setLoggedIn() {
   textarea.value = "";
 
   textarea.placeholder =
-    "hey sili";
+    "runoff";
 
   textarea.readOnly = false;
 
   button.disabled = false;
 
   button.textContent =
-    "send →";
+    "input";
 
   help.textContent =
     "";
@@ -1420,7 +682,7 @@ async function signInWithPasskey() {
     console.error(error);
 
     button.textContent =
-      "unlock →";
+      "unlock";
 
     help.textContent =
       "passkey could not authenticate";
@@ -1506,502 +768,217 @@ async function loadEntries() {
   renderEntries(data || []);
 
 }
-
-
 /* =========================================================
    RENDER ENTRIES
 ========================================================= */
-
 function renderEntries(entries) {
-
   const log =
     document.getElementById("workLog");
-
-
   log.innerHTML = "";
-
-
   if (!entries.length) {
-
     const empty =
       document.createElement("div");
-
-
     empty.className =
       "empty-log";
-
-
     empty.textContent =
       "no entries yet";
-
-
     log.appendChild(empty);
-
-
     return;
-
   }
-
-
   let previousMonth = "";
-
   let messageIndex = 0;
-
-
   entries.forEach(
-
     function(entry) {
-
       const date =
         new Date(entry.created_at);
-
-
       const month =
         date.toLocaleDateString(
-
           [],
-
           {
-
             month: "long",
-
             year: "numeric"
-
           }
-
         );
-
-
       if (month !== previousMonth) {
-
         const heading =
           document.createElement("div");
-
-
         heading.className =
           "month-heading";
-
-
         heading.textContent =
           month;
-
-
         log.appendChild(
           heading
         );
-
-
         previousMonth =
           month;
-
       }
-
-
       const row =
         document.createElement("div");
-
-
       const side =
         messageIndex % 2 === 0
-
           ? "left"
-
           : "right";
-
-
       row.className =
         "message-row " + side;
-
-
       const message =
         document.createElement("div");
-
-
       message.className =
         "message";
-
-
       const paragraph =
         document.createElement("p");
-
-
       paragraph.className =
         "message-text";
-
-
       paragraph.textContent =
         entry.project || "";
-
-
       message.appendChild(
         paragraph
       );
-
-
       const timestamp =
         document.createElement("div");
-
-
       timestamp.className =
         "timestamp";
-
-
       timestamp.textContent =
         formatTimestamp(date);
-
-
       if (side === "left") {
-
         row.appendChild(
           timestamp
         );
-
         row.appendChild(
           message
         );
-
       }
-
       else {
-
         row.appendChild(
           message
         );
-
         row.appendChild(
           timestamp
         );
-
       }
-
-
       log.appendChild(
         row
       );
-
-
       messageIndex++;
-
     }
-
   );
-
 }
-
-
 /* =========================================================
    TIMESTAMP
 ========================================================= */
-
 function formatTimestamp(date) {
-
   const datePart =
     date.toLocaleDateString(
-
       [],
-
       {
-
         month: "short",
-
         day: "numeric",
-
         year: "numeric"
-
       }
-
     );
-
-
   const timePart =
     date.toLocaleTimeString(
-
       [],
-
       {
-
         hour: "numeric",
-
         minute: "2-digit"
-
       }
-
     );
-
-
   return datePart + " · " + timePart;
-
 }
-
-
 /* =========================================================
    SEND ENTRY
 ========================================================= */
-
 async function sendEntry() {
-
   const textarea =
     document.getElementById("entryText");
-
-
   const text =
     textarea.value.trim();
-
-
   if (!text) {
-
     return;
-
   }
-
-
   const button =
     document.getElementById("sendButton");
-
-
   button.disabled = true;
-
   button.textContent =
     "sending...";
-
-
   const {
-
     error
-
   } =
-
     await supabaseClient
-
       .from("convo material log")
-
       .insert({
-
         project: text
-
       });
-
-
   button.disabled = false;
-
   button.textContent =
     "send →";
-
-
   if (error) {
-
     console.error(error);
-
     return;
-
   }
-
-
   textarea.value = "";
-
-
   stopTypingAnimation();
-
-
   await loadEntries();
-
 }
-
-
-/* =========================================================
-   TYPING ANIMATION
-========================================================= */
-
-function startTypingAnimation() {
-
-  const indicator =
-    document.getElementById(
-      "typingIndicator"
-    );
-
-
-  let dots = 1;
-
-
-  indicator.textContent =
-    "typing.";
-
-
-  indicator.classList.add(
-    "visible"
-  );
-
-
-  clearInterval(
-    typingAnimationTimer
-  );
-
-
-  typingAnimationTimer =
-    setInterval(
-
-      function() {
-
-        dots++;
-
-
-        if (dots > 3) {
-
-          dots = 1;
-
-        }
-
-
-        indicator.textContent =
-          "typing" +
-          ".".repeat(dots);
-
-      },
-
-      450
-
-    );
-
-}
-
-
-function stopTypingAnimation() {
-
-  const indicator =
-    document.getElementById(
-      "typingIndicator"
-    );
-
-
-  clearInterval(
-    typingAnimationTimer
-  );
-
-
-  indicator.classList.remove(
-    "visible"
-  );
-
-}
-
-
 /* =========================================================
    TEXT INPUT
 ========================================================= */
-
 document
-
   .getElementById("entryText")
-
   .addEventListener(
-
     "input",
-
     function() {
-
       if (authStep !== "entry") {
-
         return;
-
       }
-
-
       startTypingAnimation();
-
-
       clearTimeout(
         typingTimer
       );
-
-
       typingTimer =
         setTimeout(
-
           function() {
-
             stopTypingAnimation();
-
           },
-
           1200
-
         );
-
     }
-
   );
-
-
 /* =========================================================
    ENTER KEY
 ========================================================= */
-
 document
-
   .getElementById("entryText")
-
   .addEventListener(
-
     "keydown",
-
     function(event) {
-
       if (
-
         event.key === "Enter" &&
-
         !event.shiftKey
-
       ) {
-
         event.preventDefault();
-
         handleComposerAction();
-
       }
-
     }
-
   );
-
-
 /* =========================================================
    AUTH STATE CHANGES
 ========================================================= */
-
 supabaseClient.auth.onAuthStateChange(
-
   function(event, session) {
-
     if (session) {
-
       setLoggedIn();
-
     }
-
     else {
-
       setLoginState();
-
     }
-
   }
-
 );
-
-
 /* =========================================================
    INITIALIZE
 ========================================================= */
-
 checkSession();
 
-
-
-
 </script>
-
-
 </body>
-
 </html>

@@ -1,117 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>venus silicon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>info</title>
+  <!-- Google Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    @font-face {
-      font-family: EpiceneDisplay;
-      src: url('EpiceneDisplay-Light.otf') format('opentype');
-      font-weight: lighter;
-    }
-   
+<style>
+/* =========================================================
+   BASE
+========================================================= */
 
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  text-align: justify;
+  text-justify: inter-word;
+}
 
-    body {
-      font-family: EpiceneDisplay;
-      color:#00ff00;
-      text-align: center;
-      padding-top: 10%;
-      background-color: #e8b17b;
-      font-size: 5vw;
-      margin: 0;
-    }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    a {
-      color:#232323;
-      font-size: 5vw;
-    }
+body {
+  font-family: "Inter", sans-serif;
+  background: #e8b17b;
+  color: #232323;
+  font-size: 1.5vw;
+  padding: 5%;
+  letter-spacing: -0.8px;
+}
 
-    .navigation:hover {
-      font-size: 7vw;
-    }
+/* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
+.scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 2vw;
+  padding: 2vw 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: calc(10 * 1h);
+}
 
-    button {
-      font-family: EpiceneDisplay;
-      font-size: 3vw;
-      background-color: #e8b17b;
-      border: none;
-      color: #FE5D8D;
-      padding: 30px 32px;
-      margin: 20px 2px;
-      cursor: pointer;
-    }
+.product {
+  flex: 0 0 auto;
+  width: 35vw;
+  scroll-snap-align: start;
+  text-align: justify;
+}
 
-    /* POLICY LINK */
-    .policy-link {
-      color: #00ff00;
-      font-size: 3vw;
-      text-decoration: none;
-    }
+.about {
+  font-size: 1vw;
+}
 
-    /* GLITCH LINK */
-    .glitch-link {
-      color: #FFFDD0;
-      font-style: italic;
-      text-decoration: none;
-      font-size: 3vw;
-      display: inline-block;
-      max-width: 90vw;
-    }
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #232323;
+  display: block;
+  border-radius: 6px;
+}
 
-    #glitchText {
-      display: inline-block;
-      max-width: 90vw;
-      overflow-wrap: anywhere;
-    }
+.product-info {
+  line-height: 1.25;
+}
 
-    .glitching {
-      animation: glitchFlicker 0.3s steps(2, end);
-    }
-
-    @keyframes glitchFlicker {
-      0%   { transform: translate(0); opacity: 1; }
-      25%  { transform: translate(-2px, 1px); opacity: 0.6; }
-      50%  { transform: translate(2px, -1px); opacity: 0.8; }
-      75%  { transform: translate(-1px, -2px); opacity: 0.5; }
-      100% { transform: translate(0); opacity: 1; }
-    }
-
-
-    #words {
-     color: #FE5D8D;
-     font-size:3vw;
-     text-align: left;
-     text-align: justify;
-    text-justify: inter-word;
-    }
- img {
+.visual {
   width: 20vw;
 display: block;
   margin-left: auto;
 }
-  </style>
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  text-align: right;
+  margin-top: 20%;
+  font-size: 1.5vw;
+  color: #232323;
+}
+</style>
 </head>
 
 <body>
+<!-- =======================================================
+     navigation
+======================================================== -->
 
-<!-- NAV -->
-<a href="https://siliconvenus.online" class="navigation">go back</a>
-<br><br>
+<div class="scroll-wrap">
+  <div class="product">
+    <a href="https://siliconvenus.online">
+    <img src="goback.png" alt=""></a>
+  </div>
 
+    <div class="product">
+    <a href="https://siliconvenus.online/store">
+    <img src="store.png" alt=""></a>
+  </div>
+
+  <div class="product">
+    <a href="https://kick.com/venusili">
+    <img src="kick.png" alt=""></a>
+  </div>
+
+  <div class="product">
+    <a href="https://instagram.com/silimakestuff">
+    <img src="ig.png" alt=""></a>
+  </div>
+
+  <div class="product">
+    <a href="https://www.youtube.com/@venusili">
+    <img src="youtube.png" alt=""></a>
+  </div>
+
+    <div class="product">
+    <a href="https://siliconvenus.online/sound">
+    <img src="sound.png" alt=""></a>
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     info
+======================================================== -->
 
 <p id="words">
+silicon’s 1st experience hand-knitting dates back to 2020, a course @ Parsons New School of Design taken during senior year. intrigue never dissipated. Initially trained as a communication designer (holds a BFA in communication design & AFA in graphic design + fine arts). <br> <br>
+
+vesica = musical identtiy of silicon venus <br>
+a couple of years experimenting \ remixing ai sounds \ songwriting <br><br>
+
+      webdesign by silicon venus <img src="person.png" alt="person" class="visual"> <br> 
+      coded by venus silicon
+
+<br><br> <br><br><br><br> <br><br>
+
   Handmade Statement <br>
 
   Each piece is time—consumingly handcrafted with hyperfixated attention. While we guarantee superb quality, slight imperfections may arise. These delicate irregularities are proof of the handmade touch in venusilicon creations.
 
-  <br><br> <br><br>
+  <br><br> <br><br><br><br> <br><br>
 
   FAQ—Handmade Products <br>
 
@@ -146,7 +188,7 @@ All orders within the United States ship free of charge (USPS Ground Advantage®
 
   <br><br>
 Processing Time <br>
-Handmade products are ready for shipment. <img src="1c.png" alt="product with tag inside shipping box" >Ships within 1-2 weeks.
+Handmade products are ready for shipment. <br> <img src="1c.png" alt="product with tag inside shipping box" class="visual">Ships within 1-2 weeks.
  <br><br>
 
 Tax <br>
@@ -154,63 +196,20 @@ Tax is baked into all listed prices.
 
   <br><br>
 Longevity <br>
-Care instructions vary depending on the mixture of materials used, when placing an order it will be provided.
+Care instructions vary depending on the mixture of materials used, as described in its product page.
 
 
 </p>
 
-<br><br><br>
 
+<!-- =======================================================
+     FOOTER
+======================================================== -->
 
-<!-- GLITCH LINK -->
-<a href="giftme.html" class="glitch-link">
-  <span id="glitchText">do you enjoy my content?... right this way ↷</span>
-</a>
+<footer>
 
+  © 2026 venusilicon
 
-<br><br>
-
-<footer style="text-align:right; margin-top: 10%; margin-right: 5%; font-size:3vw; color:#0073ce;">
-  <p>© 2026 venusilicon</p>
 </footer>
 
-<script>
-
-const messages = [
-  "do you enjoy my content?... right this way ↷",
-  "do you like what i do?... right this way ↷",
-  "do my creations feel worth supporting?... right this way ↷",
-  "feeling generous?... right this way ↷"
-];
-
-let i = 0;
-const el = document.getElementById("glitchText");
-
-function swap() {
-  el.classList.add("glitching");
-
-  setTimeout(() => {
-    i = (i + 1) % messages.length;
-    el.textContent = messages[i];
-  }, 120);
-
-  setTimeout(() => {
-    el.classList.remove("glitching");
-  }, 300);
-}
-
-setInterval(swap, 2500);
-
-/* MODAL CONTROLS */
-function openModal() {
-  document.getElementById("modal").style.display = "block";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-</script>
-
 </body>
-</html>

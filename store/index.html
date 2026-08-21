@@ -1,56 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>venus silicon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>store</title>
+  <!-- Google Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-@font-face {
-  font-family: EpiceneDisplay;
-  src: url('EpiceneDisplay-Light.otf') format('opentype');
-  font-weight: lighter;
-}
+/* =========================================================
+   BASE
+========================================================= */
 
-html, body {
-  max-width: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   overflow-x: hidden;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: EpiceneDisplay;
-  text-align: center;
-  padding-top: 10%;
-  background-color:#e8b17b;
-  font-size: 5vw;
-  margin: 0;
-  color:#834253;
-}
-
-.navigation {
-  color:#834253;
-  font-size: 5vw;
-}
-
-.navigation:hover {
-  font-size: 7vw;
-}
-
-.item {
-  color:#834253;
-  font-size:7vw;
-  text-align:right;
-}
-
-.chat, #words, p {
-  color:#834253;
-  font-size:3vw;
-  text-align: justify;
+  font-family: "Inter", sans-serif;
+  background: #e8b17b;
+  color: #232323;
+  font-size: 1.5vw;
+  padding: 5%;
+  letter-spacing: -0.8px;
 }
 
 /* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
 .scroll-wrap {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
@@ -65,245 +55,133 @@ body {
   flex: 0 0 auto;
   width: 35vw;
   scroll-snap-align: start;
-  text-align: left;
-  color: #834253;
+  text-align: justify;
+}
+
+.about {
+  font-size: 1vw;
 }
 
 .product img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  background: #ddd;
+  background: #232323;
   display: block;
   border-radius: 6px;
 }
 
-.product span {
-  display: block;
+.product-info {
+  line-height: 1.25;
+}
+
+a {
+  color: #232323;;
+}
+
+a:hover {
   font-size: 3vw;
-  margin-top: 1vw;
-}
-
-/* ===== LINKS UNDER EACH PRODUCT ===== */
-.product-links {
-  text-align: left;
-  font-size: 3vw;
-  margin-top: 1vw;
-}
-
-.product-links a {
-  display: block;
-  color: #834253;
-  text-decoration: underline;
-  margin-top: 0.5vw;
 }
 
 
+/* =========================================================
+   FOOTER
+========================================================= */
 
+footer {
+  text-align: right;
+  margin-top: 20%;
+  font-size: 1.5vw;
+  color: #232323;
+}
 </style>
 </head>
 
 <body>
+<!-- =======================================================
+     navigation
+======================================================== -->
 
-<a href="https://siliconvenus.online" class="navigation">⤶ venus silicon</a>
-<br><br>
-
-<p id="words">
-handmade products made with love. either you're interested in something more custom
-(<a href="https://www.instagram.com/silimakestuff" target="_blank" class="chat">dm me</a>) or head to a product's arrow to get its full scope. or <a href="giftme.html" class="chat">something else</a>. but if you do plan on purchasing multiple items, reach out so i can create a custom payment link for you.
-</p>
-
-<p class="item">decorative padded items</p>
-
-<!-- ===== HORIZONTAL SCROLL ===== -->
 <div class="scroll-wrap">
-
-
-   <div class="product">
-    <img src="hori-scroll/eleven.png" alt="">
-    interactive.1 <br>
-    <a href="https://www.instagram.com/p/DaL-VKagRG7/?igsh=MXFtaGxldGNqYnBhag==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/eleven.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+  <div class="product">
+    <a href="https://siliconvenus.online">
+    <img src="goback.png" alt=""></a>
   </div>
 
-</div>
-
-
-<!-- ===== HORIZONTAL SCROLL ===== -->
-<div class="scroll-wrap">
-
-     <div class="product">
-    <img src="hori-scroll/ten.png" alt="">
-    knotty toxic mold <br>
-    <a href="https://www.instagram.com/p/DaG1yWcgQWu/?igsh=MTFmMzhneXF2Nm00cw==" target="_blank" style="text-decoration:none; color: #834253">➳</a> \ <a href="dpi/ten.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-   <div class="product">
-    <img src="hori-scroll/eight.png" alt="">
-    seasickedness <br>
-    <a href="https://www.instagram.com/p/DaBmkOEAexn/?igsh=MXBoZm1yYnk0NjZvMQ==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/eight.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+  <div class="product">
+    <a href="https://kick.com/venusili">
+    <img src="kick.png" alt=""></a>
   </div>
 
 
-   <div class="product">
-    <img src="hori-scroll/seven.png" alt="">
-    the spline asks you to slice it right <br>
-    <a href="https://www.instagram.com/p/Dav-Qi4AQ7K/?igsh=ZnI2M2NzNmZ3YXlu" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/seven.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+  <div class="product">
+    <a href="https://instagram.com/silimakestuff">
+    <img src="ig.png" alt=""></a>
   </div>
 
-
-   <div class="product">
-    <img src="hori-scroll/six.png" alt="">
-    the bird is a consumerist <br>
-    <a href="https://www.instagram.com/p/DaELHmskmf6/?igsh=MWVvdzkzMjY5c2tobw==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/six.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+  <div class="product">
+    <a href="https://www.youtube.com/@venusili">
+    <img src="youtube.png" alt=""></a>
   </div>
 
-</div>
-
-
-<!-- ===== HORIZONTAL SCROLL ===== -->
-<div class="scroll-wrap">
-
-   <div class="product">
-    <img src="hori-scroll/twelve.png" alt="">
-    midnight's depiction <br>
-    <a href="https://www.instagram.com/p/Dav_BmbAYuw/?img_index=6&igsh=cTl2eGRyMWtrZWEy" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/twelve.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-   <div class="product">
-    <img src="hori-scroll/nine.png" alt="">
-    dragged aside <br>
-    <a href="https://www.instagram.com/p/DZ-wLeZgTNe/?igsh=MjM4YmplbjJtNDJs" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/nine.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-   <div class="product">
-    <img src="hori-scroll/five.png" alt="">
-    ruffled affairs <br>
-    <a href="https://www.instagram.com/p/DaBnAoaAZzQ/?igsh=MXY1cWlzcmx3aXk0dQ%3D%3D" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/five.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-     <div class="product">
-    <img src="hori-scroll/four.png" alt="">
-    beautiful decay <br>
-    <a href="https://www.instagram.com/p/DZu1dojlLgO/?igsh=MXZ6OTI0enY4dDVvdA==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/four.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-   <div class="product">
-    <img src="hori-scroll/three.png" alt="">
-    tagged loyalty <br>
-    <a href="https://www.instagram.com/p/Dav91SvAWnJ/?igsh=MWxzMjd0cnFpd2QzYw==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/three.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-
-   <div class="product">
-    <img src="hori-scroll/two.png" alt="">
-    hypoglyglatic <br>
-    <a href="https://www.instagram.com/p/Dav9kUMAR01/?igsh=dzY2bHk0cGxnbnI3" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/two.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-
-   <div class="product">
-    <img src="hori-scroll/one.png" alt="">
-    slippery merchant <br>
-    <a href="https://www.instagram.com/p/DaEK89Hkv0O/?utm_source=ig_web_button_share_sheet" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="dpi/one.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-</div>
-
-<p class="item">keychain charms</p>
-
-<!-- ===== HORIZONTAL SCROLL ===== -->
-<div class="scroll-wrap">
-
-    <div class="product">
-    <img src="hori-scroll/11.png" alt="">
-    vesica piscis deconstructed
- <br>
-    <a href="https://www.instagram.com/p/DavmjpPGPS9/?igsh=MWVucmVrMmthZjFvOA==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/11.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-    <div class="product">
-    <img src="hori-scroll/10.png" alt="">
-    masculine nose on a face of female
- <br>
-    <a href="https://www.instagram.com/p/DavkA5bGMPk/?igsh=MTN6dTRpOXZrcXJ1OA==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/10.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-
-
-
-
-    
-</div>
-
-<!-- ===== HORIZONTAL SCROLL ===== -->
-<div class="scroll-wrap">
-    <div class="product">
-    <img src="hori-scroll/9.png" alt="">
-    smangly loti furri
- <br>
-    <a href="https://www.instagram.com/p/Daj84OqFDga/?igsh=MWk3OTliZnlyeXE3Mw==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/9.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-   <div class="product">
-    <img src="hori-scroll/8.png" alt="">
-    mush mini upright storage 
-    <a href="https://www.instagram.com/p/DavrDmvgdeZ/?igsh=MXR0ZHg3aGVqeHFkdw==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/8.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-    <div class="product">
-    <img src="hori-scroll/7.png" alt="">
-    toxin fold <br>
-    <a href="https://www.instagram.com/p/DavrWy7gfU-/?igsh=d3B3em90czV3eG1k" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/7.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-    <div class="product">
-    <img src="hori-scroll/6.png" alt="">
-    pet rock <br>
-    <a href="https://www.instagram.com/p/DZu1ktmFBR1/?igsh=NzR3dmNrNHVxemd4" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/6.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+  <div class="product">
+    <a href="https://siliconvenus.online/info">
+    <img src="info.png" alt=""></a>
   </div>
 
       <div class="product">
-    <img src="hori-scroll/5.png" alt="">
-    b33ts <br>
-    <a href="https://www.instagram.com/p/DZ8H_E5D7fs/?igsh=MTlqNDllYXdydTgyYg==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/5.html" style="text-decoration:none; none; color: #834253; ">buy</a>
+    <a href="https://siliconvenus.online/sound">
+    <img src="sound.png" alt=""></a>
   </div>
 
 </div>
 
-<!-- ===== HORIZONTAL SCROLL ===== -->
+
+<!-- =======================================================
+     products
+======================================================== -->
+
 <div class="scroll-wrap">
 
     <div class="product">
-    <img src="hori-scroll/4.png" alt="">
-    16 rect, iteration.4 <br>
-    <a href="https://www.instagram.com/p/DZ8HvOpjxYB/?igsh=Z2NtdnBmeWJ5dmcx" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/4.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
-      <div class="product">
-    <img src="hori-scroll/3.png" alt="">
-    16 rect, iteration.3 <br>
-    <a href="https://www.instagram.com/p/DZ8HYR8j3QU/?igsh=a2R1cjIzcTUxa29t" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/3.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
+  <div class="product">
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
-      <div class="product">
-    <img src="hori-scroll/2.png" alt="">
-    16 rect, iteration.2 <br>
-    <a href="https://www.instagram.com/p/DZu16sSFKBK/?igsh=MXBuOG9xdjcyMWlieQ==" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/2.html"  style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
-
-      <div class="product">
-    <img src="hori-scroll/1.png" alt="">
-    16 rect, iteration.1 <br>
-    <a href="https://www.instagram.com/p/DZu1zkMFFAc/?igsh=NTBrYnV3N3Biazhl" target="_blank" style="text-decoration:none; color: #834253;">➳</a> \ <a href="keychaincharm/1.html" style="text-decoration:none; none; color: #834253; ">buy</a>
-  </div>
+  <div class="product">
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
 </div>
 
-<br><br>
+<br> 
+
+come back later?
+
+
+<!-- =======================================================
+     FOOTER
+======================================================== -->
 
 <footer>
-  <p>© 2026 venusilicon</p>
+
+  © 2026 venusilicon
+
 </footer>
 
 </body>
-</html>
