@@ -261,6 +261,13 @@ text-align: justify;
   }
 }
 /* =========================================================
+   stripe
+========================================================= */
+.stripe-button {
+  position: relative;
+  z-index: 2;
+}
+/* =========================================================
    FOOTER
 ========================================================= */
 footer {
@@ -481,6 +488,21 @@ a v sleepy stream
   <div class="log-logo">
     <img src="logo.png" alt="silicon venus logo">
   </div>
+<!-- =======================================================
+     stripe button
+======================================================== -->
+<div class="stripe-button">
+
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1U71YpRsgaID6T6rHQAYU3u0"
+  publishable-key="pk_live_51RP8fjRsgaID6T6rK7zKJD0EMrIRz96vZds9QFctG0ZPCP0LU0zYRbpYtUsI6r7lzMpqGmLkxVVhOY2fDKPW5iuN00yrMT0wnZ"
+>
+</stripe-buy-button>
+</div>
 <!-- =======================================================
      FOOTER
 ======================================================== -->
