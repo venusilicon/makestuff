@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>store</title>
- <!-- Google Quicksand font -->
+<title>tip</title>
+  <!-- Google Quicksand font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -58,10 +58,6 @@ body {
   text-align: justify;
 }
 
-.about {
-  font-size: 1vw;
-}
-
 .product img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -75,6 +71,7 @@ body {
   line-height: 1.25;
 }
 
+
 a {
   color: #232323;;
 }
@@ -82,8 +79,13 @@ a {
 a:hover {
   font-size: 3vw;
 }
-
-
+/* =========================================================
+   stripe
+========================================================= */
+.stripe-button {
+  position: relative;
+  z-index: 2;
+}
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -103,9 +105,13 @@ footer {
 ======================================================== -->
 
 <div class="scroll-wrap">
-      <div class="product">
+        <div class="product">
     <a href="https://siliconvenus.online/">
     <img src="goback.png" alt=""></a>
+  </div>
+    <div class="product">
+    <a href="https://siliconvenus.online/store">
+    <img src="store.png" alt=""></a>
   </div>
         <div class="product">
     <a href="https://www.patreon.com/cw/venusili">
@@ -119,22 +125,13 @@ footer {
     <a href="https://instagram.com/silimakestuff">
     <img src="ig.png" alt=""></a>
   </div>
-
   <div class="product">
     <a href="https://www.youtube.com/@venusili">
     <img src="youtube.png" alt=""></a>
   </div>
-        <div class="product">
-    <a href="https://siliconvenus.online/tip">
-    <img src="tip.png" alt=""></a>
-  </div>
     <div class="product">
     <a href="https://siliconvenus.online/sound">
     <img src="sound.png" alt=""></a>
-  </div>
-          <div class="product">
-    <a href="https://siliconvenus.online/tip">
-    <img src="tip.png" alt=""></a>
   </div>
     <div class="product">
     <a href="https://siliconvenus.online/info">
@@ -142,42 +139,22 @@ footer {
   </div>
 </div>
 
-
+<br><br><br><br>
 <!-- =======================================================
-     products
+     stripe button
 ======================================================== -->
+<div class="stripe-button">
 
-<div class="scroll-wrap">
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
-    <div class="product">
-    <img src="navi/about.png" alt="">
-    <div class="product-info">
-    <a href="">product name</a> <br>
-    $cost
-    </div>
+<stripe-buy-button
+  buy-button-id="buy_btn_1U71YpRsgaID6T6rHQAYU3u0"
+  publishable-key="pk_live_51RP8fjRsgaID6T6rK7zKJD0EMrIRz96vZds9QFctG0ZPCP0LU0zYRbpYtUsI6r7lzMpqGmLkxVVhOY2fDKPW5iuN00yrMT0wnZ"
+>
+</stripe-buy-button>
 </div>
-
-  <div class="product">
-    <img src="navi/about.png" alt="">
-    <div class="product-info">
-    <a href="">product name</a> <br>
-    $cost
-    </div>
-</div>
-
-  <div class="product">
-    <img src="navi/about.png" alt="">
-    <div class="product-info">
-    <a href="">product name</a> <br>
-    $cost
-    </div>
-</div>
-
-</div>
-
-<br> 
-
-come back later?
 
 
 <!-- =======================================================
