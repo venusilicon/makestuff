@@ -146,23 +146,37 @@ text-align: justify;
   flex-shrink: 0;
 }
 /* =========================================================
-   MESSAGE
+   locked MESSAGE
 ========================================================= */
-.message {
-  width: fit-content;
-  max-width: 100%;
-  padding: 2% 2%;
-  box-sizing: border-box;
-  background: #e8b17b;
-  text-align: justify;
-  line-height: 1.25;
-  letter-spacing: -0.2px;
+.locked-message {
+  position: relative;
+  color: rgba(35, 35, 35, 0.72);
+  filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.75),
+    0 -1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.message-text {
-  margin: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.locked-message::after {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.05) 32%,
+      rgba(255, 255, 255, 0.55) 43%,
+      rgba(255, 255, 255, 0.12) 50%,
+      transparent 65%
+    );
+
+  mix-blend-mode: screen;
 }
 /* =========================================================
    COMPOSER
@@ -829,141 +843,196 @@ function handleComposerAction() {
 ========================================================= */
 
 async function loadEntries() {
-
   const {
+    data: {
+      session
+    }
+  } = await supabaseClient.auth.getSession();
 
-    data,
+  let data;
+  let error;
 
-    error
+  if (session) {
 
-  } =
-
-    await supabaseClient
-
-      .from("convo material log")
-
-      .select(
-        "id, created_at, project"
-      )
-
-      .order(
-
-        "created_at",
-
-        {
-
+    const result =
+      await supabaseClient
+        .from("convo material log")
+        .select("id, created_at, project")
+        .order("created_at", {
           ascending: false
+        });
 
-        }
+    data = result.data;
+    error = result.error;
 
-      );
+  } else {
 
+    const result =
+      await supabaseClient
+        .from("convo material log public")
+        .select("id, created_at")
+        .order("created_at", {
+          ascending: false
+        });
 
-  if (error) {
-
-    console.error(error);
-
-    return;
-
+    data = result.data;
+    error = result.error;
   }
 
+  if (error) {
+    console.error(error);
+    return;
+  }
 
-  renderEntries(data || []);
-
+  renderEntries(
+    data || [],
+    Boolean(session)
+  );
 }
 /* =========================================================
    RENDER ENTRIES
 ========================================================= */
-function renderEntries(entries) {
-  const log =
-    document.getElementById("workLog");
-  log.innerHTML = "";
+function renderEntries(
+  entries,
+  unlocked = false
+) {
+  workLog.innerHTML = "";
+
   if (!entries.length) {
-    const empty =
-      document.createElement("div");
-    empty.className =
-      "empty-log";
-    empty.textContent =
-      "no entries yet";
-    log.appendChild(empty);
+    workLog.innerHTML = `
+      <div class="empty-log">
+        no entries yet
+      </div>
+    `;
     return;
   }
-  let previousMonth = "";
+
+  let currentMonth = "";
   let messageIndex = 0;
-  entries.forEach(
-    function(entry) {
-      const date =
-        new Date(entry.created_at);
-      const month =
-        date.toLocaleDateString(
-          [],
-          {
-            month: "long",
-            year: "numeric"
-          }
-        );
-      if (month !== previousMonth) {
-        const heading =
-          document.createElement("div");
-        heading.className =
-          "month-heading";
-        heading.textContent =
-          month;
-        log.appendChild(
-          heading
-        );
-        previousMonth =
-          month;
-      }
-      const row =
+
+  entries.forEach(entry => {
+
+    const date =
+      new Date(entry.created_at);
+
+    const monthKey =
+      date.toLocaleDateString([], {
+        month: "long",
+        year: "numeric"
+      });
+
+    if (monthKey !== currentMonth) {
+
+      currentMonth = monthKey;
+
+      const monthHeading =
         document.createElement("div");
-      const side =
+
+      monthHeading.className =
+        "month-heading";
+
+      monthHeading.textContent =
+        monthKey;
+
+      workLog.appendChild(
+        monthHeading
+      );
+    }
+
+    const row =
+      document.createElement("div");
+
+    row.className =
+      "message-row " +
+      (
         messageIndex % 2 === 0
           ? "left"
-          : "right";
-      row.className =
-        "message-row " + side;
-      const message =
-        document.createElement("div");
-      message.className =
-        "message";
-      const paragraph =
-        document.createElement("p");
-      paragraph.className =
-        "message-text";
-      paragraph.textContent =
+          : "right"
+      );
+
+    const timestamp =
+      document.createElement("div");
+
+    timestamp.className =
+      "timestamp";
+
+    timestamp.textContent =
+      formatTimestamp(date);
+
+    const message =
+      document.createElement("div");
+
+    message.className =
+      "message";
+
+    const text =
+      document.createElement("p");
+
+    text.className =
+      "message-text";
+
+    if (unlocked) {
+
+      text.textContent =
         entry.project || "";
-      message.appendChild(
-        paragraph
+
+    } else {
+
+      text.classList.add(
+        "locked-message"
       );
-      const timestamp =
-        document.createElement("div");
-      timestamp.className =
-        "timestamp";
-      timestamp.textContent =
-        formatTimestamp(date);
-      if (side === "left") {
-        row.appendChild(
-          timestamp
-        );
-        row.appendChild(
-          message
-        );
-      }
-      else {
-        row.appendChild(
-          message
-        );
-        row.appendChild(
-          timestamp
-        );
-      }
-      log.appendChild(
-        row
-      );
-      messageIndex++;
+
+      text.textContent =
+        generateLockedText(entry.id);
     }
-  );
+
+    message.appendChild(text);
+
+    row.appendChild(timestamp);
+    row.appendChild(message);
+
+    workLog.appendChild(row);
+
+    messageIndex++;
+  });
+}
+/* =========================================================
+   locked-text generator
+========================================================= */
+function generateLockedText(id) {
+  const fragments = [
+    "material record",
+    "project data",
+    "inventory notes",
+    "construction details",
+    "process record",
+    "handmade object",
+    "material information"
+  ];
+
+  let hash = 0;
+
+  for (let i = 0; i < id.length; i++) {
+    hash =
+      ((hash << 5) - hash) +
+      id.charCodeAt(i);
+
+    hash |= 0;
+  }
+
+  const fragment =
+    fragments[
+      Math.abs(hash) %
+      fragments.length
+    ];
+
+  const length =
+    3 +
+    Math.abs(hash % 5);
+
+  return Array(length)
+    .fill(fragment)
+    .join(" ");
 }
 /* =========================================================
    TIMESTAMP
