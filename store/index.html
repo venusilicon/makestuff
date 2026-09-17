@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>store</title>
-
-<!-- Google Quicksand font -->
+ <!-- Google Quicksand font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,36 +37,53 @@ body {
   letter-spacing: -0.2px;
 }
 
+/* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
+.scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 2vw;
+  padding: 2vw 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: calc(10 * 1h);
+}
+
+.product {
+  flex: 0 0 auto;
+  width: 35vw;
+  scroll-snap-align: start;
+  text-align: justify;
+}
+
+.about {
+  font-size: 1vw;
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #232323;
+  display: block;
+  border-radius: 6px;
+}
+
+.product-info {
+  line-height: 1.25;
+}
+
 a {
-  color: #232323;
+  color: #232323;;
 }
 
 a:hover {
   font-size: 3vw;
 }
 
-/* =========================================================
-navigation
-========================================================= */
-.section-nav {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2vw;
-}
 
-.section-nav-item {
-  min-width: 0;
-}
-
-.section-nav-item img {
-  width: 100%;
-
-  object-fit: cover;
-  display: block;
-  background: none;
-  border-radius: 6px;
-}
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -78,447 +94,92 @@ footer {
   font-size: 1.5vw;
   color: #232323;
 }
-
-
-/* =========================================================
-   STORE
-   New Store-specific styling only
-========================================================= */
-
-.store {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-
-/* =========================================================
-   SHOP ALL
-========================================================= */
-
-.available-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4vw 2vw;
-  margin-top: 2vw;
-}
-
-.store-product {
-  width: 100%;
-  text-align: justify;
-}
-
-.store-product-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  background: none;
-  display: block;
-  border-radius: none;
-}
-
-.store-product-info {
-  line-height: 1.25;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1vw;
-  margin-top: 0.5vw;
-}
-
-.store-product-name {
-  text-align: left;
-}
-
-.store-product-price {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.quick-add {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.5vw;
-  letter-spacing: -0.2px;
-  color: #232323;
-
-  cursor: pointer;
-}
-
-.quick-add:hover {
-  font-size: 3vw;
-}
-
-
-/* =========================================================
-   SOLD PILE
-========================================================= */
-
-.sold-pile {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: auto;
-  margin-top: 8vw;
-  padding: 0;
-}
-
-.sold-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 20vw);
-  grid-auto-rows: auto;
-  gap: 4vw 2vw;
-
-  /* Creates the scrollable canvas even when empty */
-  width: max-content;
-  min-width: 100%;
-  min-height: 100%;
-}
-
-.sold-product {
-  width: 20vw;
-  text-align: justify;
-}
-
-.sold-product-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  background: #232323;
-  display: block;
-  border-radius: 6px;
-}
-
-.sold-product-info {
-  line-height: 1.25;
-  margin-top: 0.5vw;
-}
-
-
-/* =========================================================
-   STORE LABELS
-========================================================= */
-
-.store-section-label {
-  margin-top: 4vw;
-  margin-bottom: 1vw;
-}
-
-
-/* =========================================================
-   EMPTY STATES
-========================================================= */
-
-.store-empty {
-  line-height: 1.25;
-}
-
-/* =========================================================
-   BASKET
-========================================================= */
-
-.basket-control {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
-
-.basket-button {
-  font-family: 'Quicksand', sans-serif;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.basket-button img {
-  display: block;
-  width: 5vw;
-  height: auto;
-}
-
-.basket-button:hover img {
-  transform: scale(1.2);
-}
-.basket-popout {
-  position: fixed;
-  top: calc(5% + 3vw);
-  left: 50%;
-  transform: translateX(-50%) scale(0.96);
-  transform-origin: top center;
-
-  width: min(90vw, 900px);
-
-  background: #e8b17b;
-  border: 1px solid #232323;
-  padding: 2vw;
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s ease;
-
-  z-index: 999;
-}
-
-.basket-popout.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) scale(1);
-}
-
-.basket-items {
-  display: flex;
-  gap: 2vw;
-  overflow-x: auto;
-  padding-bottom: 1vw;
-}
-
-.basket-item {
-  flex: 0 0 18vw;
-  text-align: center;
-}
-
-.basket-item-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
-  background: #232323;
-  border-radius: 6px;
-}
-
-.basket-remove {
-  display: block;
-  margin: 0.5vw auto 0;
-
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.5vw;
-  color: #232323;
-  background: none;
-  border: none;
-  padding: 0;
-
-  cursor: pointer;
-}
-
-.basket-remove:hover {
-  font-size: 3vw;
-}
-
-.basket-purchase {
-  display: block;
-  margin-top: 2vw;
-
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.5vw;
-  color: #232323;
-  background: none;
-  border: none;
-  padding: 0;
-
-  cursor: pointer;
-}
-
-.basket-purchase:hover {
-  font-size: 3vw;
-}
-
-.basket-empty {
-  line-height: 1.25;
-}
-
-/* =========================================================
-   BASKET LOADER
-========================================================= */
-
-.basket-loader {
-  width: 4vw;
-  height: 2vw;
-
-  position: relative;
-
-  margin: 0 auto;
-
-  display: none;
-}
-
-.basket-loader.active {
-  display: block;
-}
-
-.basket-loader-circle {
-  position: absolute;
-
-  top: 50%;
-  width: 2vw;
-  height: 2vw;
-
-  border: 1px solid #232323;
-  border-radius: 50%;
-
-  transform: translateY(-50%);
-}
-
-.basket-loader-circle:first-child {
-  left: 0;
-  animation: basket-circle-left 1.2s ease-in-out infinite;
-}
-
-.basket-loader-circle:last-child {
-  right: 0;
-  animation: basket-circle-right 1.2s ease-in-out infinite;
-}
-
-@keyframes basket-circle-left {
-
-  0%,
-  100% {
-    left: 0;
-  }
-
-  50% {
-    left: 1vw;
-  }
-}
-
-@keyframes basket-circle-right {
-
-  0%,
-  100% {
-    right: 0;
-  }
-
-  50% {
-    right: 1vw;
-  }
-}
 </style>
 </head>
 
 <body>
 <!-- =======================================================
-     BASKET
-======================================================== -->
-
-<div class="basket-control">
-
-<button
-  id="basket-button"
-  class="basket-button"
-  type="button"
-  aria-label="Open basket"
->
-  <img
-    src="basket.png"
-    alt=""
-  >
-</button>
-
-</div>
-
-
-<div
-  id="basket-popout"
-  class="basket-popout"
->
-
-  <div
-    id="basket-items"
-    class="basket-items"
-  ></div>
-
-  <div
-    id="basket-loader"
-    class="basket-loader"
-    aria-hidden="true"
-  >
-    <div class="basket-loader-circle"></div>
-    <div class="basket-loader-circle"></div>
-  </div>
-
-  <button
-    id="basket-purchase"
-    class="basket-purchase"
-    type="button"
-  >
-    purchase
-  </button>
-
-</div>
-<!-- =======================================================
      navigation
 ======================================================== -->
 
-<div class="section-nav">
-
-  <div class="section-nav-item">
-    <a href="https://siliconvenus.online">
-      <img src="hand-3-store.png" alt="">
-    </a>
+<div class="scroll-wrap">
+      <div class="product">
+    <a href="https://siliconvenus.online/">
+    <img src="goback.png" alt=""></a>
+  </div>
+        <div class="product">
+    <a href="https://www.patreon.com/cw/venusili">
+    <img src="patreon.png" alt=""></a>
+  </div>
+  <div class="product">
+    <a href="https://kick.com/venusili">
+    <img src="kick.png" alt=""></a>
+  </div>
+  <div class="product">
+    <a href="https://instagram.com/silimakestuff">
+    <img src="ig.png" alt=""></a>
   </div>
 
-  <div class="section-nav-item">
+  <div class="product">
+    <a href="https://www.youtube.com/@venusili">
+    <img src="youtube.png" alt=""></a>
+  </div>
+        <div class="product">
+    <a href="https://siliconvenus.online/tip">
+    <img src="tip.png" alt=""></a>
+  </div>
+    <div class="product">
+    <a href="https://siliconvenus.online/sound">
+    <img src="sound.png" alt=""></a>
+  </div>
+          <div class="product">
+    <a href="https://siliconvenus.online/tip">
+    <img src="tip.png" alt=""></a>
+  </div>
+    <div class="product">
     <a href="https://siliconvenus.online/info">
-      <img src="info-store.png" alt="">
-    </a>
+    <img src="info.png" alt=""></a>
   </div>
-
-  <div class="section-nav-item">
+      <div class="product">
     <a href="https://siliconvenus.online/perception">
-      <img src="perception-store.png" alt="">
-    </a>
+    <img src="perception.png" alt=""></a>
   </div>
-
 </div>
 
 
 <!-- =======================================================
-     STORE
+     products
 ======================================================== -->
 
-<main class="store">
+<div class="scroll-wrap">
 
-  <!-- =====================================================
-       SHOP ALL
-  ====================================================== -->
+    <div class="product">
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
-  <div class="store-section-label">
-    shop all
-  </div>
+  <div class="product">
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
-  <div id="available-grid" class="available-grid">
-    <!-- Products loaded from Supabase -->
-  </div>
-
-
-  <!-- =====================================================
-       SOLD PILE
-  ====================================================== -->
-
-<div id="sold-pile" class="sold-pile">
-
-  <div id="sold-grid" class="sold-grid">
-    <!-- Sold products loaded from Supabase -->
-  </div>
+  <div class="product">
+    <img src="navi/about.png" alt="">
+    <div class="product-info">
+    <a href="">product name</a> <br>
+    $cost
+    </div>
+</div>
 
 </div>
 
-</main>
-
-
-  <br><br> <br><br><br><br> <br><br>  <br><br> <br><br><br><br> <br><br>
+<br> 
 
 <a href="https://www.youtube.com/playlist?list=PLHQySWWGH7T4">
   tune into zoom out for further updates
@@ -530,615 +191,9 @@ footer {
 ======================================================== -->
 
 <footer>
+
   © 2026 venusilicon
+
 </footer>
 
-
-<!-- =======================================================
-     SUPABASE
-======================================================== -->
-
-<script type="module">
-
-import { createClient } from
-'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-
-/* =========================================================
-   SUPABASE CONNECTION
-========================================================= */
-
-const SUPABASE_URL =
-  "https://ttatoxpeeifoyenlbtro.supabase.co";
-
-
-const SUPABASE_PUBLISHABLE_KEY =
-  "sb_publishable_xvtMRTFOnMUcUP9Pm6e1Rg_d1IOag5g";
-
-const supabase = createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const availableGrid = document.getElementById('available-grid');
-const soldGrid = document.getElementById('sold-grid');
-const soldPile = document.getElementById('sold-pile');
-
-/* =========================================================
-   BASKET
-========================================================= */
-
-const basketButton =
-  document.getElementById('basket-button');
-
-const basketPopout =
-  document.getElementById('basket-popout');
-
-const basketItemsContainer =
-  document.getElementById('basket-items');
-
-const basketLoader =
-  document.getElementById('basket-loader');
-
-const basketPurchase =
-  document.getElementById('basket-purchase');
-
-const BASKET_KEY =
-  'siliconVenusBasket';
-
-const BASKET_ACTIVITY_KEY =
-  'siliconVenusBasketActivity';
-
-const BASKET_IDLE_TIME =
-  20 * 60 * 1000;
-
-function showBasketLoader() {
-
-  basketItemsContainer.innerHTML = '';
-
-  basketPurchase.style.display = 'none';
-
-  basketLoader.classList.add(
-    'active'
-  );
-
-}
-
-
-
-function hideBasketLoader() {
-
-  basketLoader.classList.remove(
-    'active'
-  );
-
-}
-
-/* =========================================================
-   BASKET STORAGE
-========================================================= */
-
-function getBasket() {
-
-  const saved =
-    localStorage.getItem(BASKET_KEY);
-
-  if (!saved) {
-    return [];
-  }
-
-  try {
-    return JSON.parse(saved);
-  } catch {
-    return [];
-  }
-}
-
-
-function saveBasket(basket) {
-
-  localStorage.setItem(
-    BASKET_KEY,
-    JSON.stringify(basket)
-  );
-
-  touchBasket();
-
-  renderBasket();
-}
-
-
-function touchBasket() {
-
-  localStorage.setItem(
-    BASKET_ACTIVITY_KEY,
-    String(Date.now())
-  );
-}
-
-
-/* =========================================================
-   BASKET IDLE EXPIRATION
-========================================================= */
-
-function checkBasketExpiration() {
-
-  const basket =
-    getBasket();
-
-  if (!basket.length) {
-    return;
-  }
-
-  const lastActivity =
-    Number(
-      localStorage.getItem(BASKET_ACTIVITY_KEY)
-    );
-
-  if (
-    lastActivity &&
-    Date.now() - lastActivity >= BASKET_IDLE_TIME
-  ) {
-
-    localStorage.removeItem(
-      BASKET_KEY
-    );
-
-    localStorage.removeItem(
-      BASKET_ACTIVITY_KEY
-    );
-
-    renderBasket();
-
-  }
-}
-
-
-/* Check when page loads */
-
-checkBasketExpiration();
-
-
-/* Check periodically while page remains open */
-
-setInterval(
-  checkBasketExpiration,
-  30 * 1000
-);
-
-
-/* =========================================================
-   ADD TO BASKET
-========================================================= */
-
-function addToBasket(product) {
-
-  checkBasketExpiration();
-
-  const basket =
-    getBasket();
-
-  const alreadyExists =
-    basket.some(
-      item => item.id === product.id
-    );
-
-  if (alreadyExists) {
-
-    openBasket();
-
-    return;
-
-  }
-
-  basket.unshift({
-
-    id: product.id,
-
-    name: product.name,
-
-    price: Number(product.price),
-
-    image_url: product.image_url
-
-  });
-
-  saveBasket(basket);
-
-  openBasket();
-
-  showBasketLoader();
-
-  setTimeout(() => {
-
-    hideBasketLoader();
-
-    renderBasket();
-
-  }, 1500);
-
-}
-
-
-/* =========================================================
-   REMOVE FROM BASKET
-========================================================= */
-
-function removeFromBasket(productId) {
-
-  const basket =
-    getBasket();
-
-  const updated =
-    basket.filter(
-      item => item.id !== productId
-    );
-
-  saveBasket(updated);
-}
-
-
-/* =========================================================
-   RENDER BASKET
-========================================================= */
-
-function renderBasket() {
-
-  checkBasketExpiration();
-
-  const basket =
-    getBasket();
-
-  basketItemsContainer.innerHTML = '';
-
-
-  if (!basket.length) {
-
-    basketItemsContainer.innerHTML = `
-      <div class="basket-empty">
-        basket is empty
-      </div>
-    `;
-
-    basketPurchase.style.display =
-      'none';
-
-    return;
-  }
-
-
-  basketPurchase.style.display =
-    'block';
-
-
-  basket.forEach(item => {
-
-    const wrapper =
-      document.createElement('div');
-
-    wrapper.className =
-      'basket-item';
-
-    wrapper.innerHTML = `
-
-      <a
-        href="product.html?id=${encodeURIComponent(item.id)}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <img
-          class="basket-item-image"
-          src="${item.image_url}"
-          alt="${escapeHTML(item.name)}"
-        >
-
-      </a>
-
-      <button
-        class="basket-remove"
-        type="button"
-        data-product-id="${item.id}"
-      >
-        ×
-      </button>
-
-    `;
-
-    basketItemsContainer.appendChild(
-      wrapper
-    );
-
-  });
-
-
-  document
-    .querySelectorAll('.basket-remove')
-    .forEach(button => {
-
-      button.addEventListener(
-        'click',
-        () => {
-
-          removeFromBasket(
-            button.dataset.productId
-          );
-
-        }
-      );
-
-    });
-}
-
-
-/* =========================================================
-   OPEN / CLOSE BASKET
-========================================================= */
-
-function openBasket() {
-
-  checkBasketExpiration();
-
-  basketPopout.classList.add(
-    'open'
-  );
-
-  touchBasket();
-
-  renderBasket();
-}
-
-
-function closeBasket() {
-
-  basketPopout.classList.remove(
-    'open'
-  );
-}
-
-
-basketButton.addEventListener(
-  'click',
-  () => {
-
-    if (
-      basketPopout.classList.contains('open')
-    ) {
-
-      closeBasket();
-
-    } else {
-
-      openBasket();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   BASKET ACTIVITY
-========================================================= */
-
-basketPopout.addEventListener(
-  'click',
-  () => {
-
-    touchBasket();
-
-  }
-);
-
-
-/* =========================================================
-   PURCHASE
-========================================================= */
-
-basketPurchase.addEventListener(
-  'click',
-  () => {
-
-    const basket =
-      getBasket();
-
-    if (!basket.length) {
-      return;
-    }
-
-    window.location.href =
-      'transaction.html';
-
-  }
-);
-
-
-/* =========================================================
-   INITIAL BASKET RENDER
-========================================================= */
-
-renderBasket();
-/* =========================================================
-   LOAD PRODUCTS
-========================================================= */
-
-async function loadProducts() {
-
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-
-  if (error) {
-    console.error('Could not load products:', error);
-    return;
-  }
-
-
-  const available = data.filter(
-    product => product.status === 'available'
-  );
-
-  const sold = data.filter(
-    product => product.status === 'sold'
-  );
-
-
-  renderAvailable(available);
-  renderSold(sold);
-}
-
-
-/* =========================================================
-   AVAILABLE PRODUCTS
-========================================================= */
-
-function renderAvailable(products) {
-
-  availableGrid.innerHTML = '';
-
-  if (!products.length) {
-
-    availableGrid.innerHTML = `
-      <div class="store-empty">
-        nothing currently available
-      </div>
-    `;
-
-    return;
-  }
-
-
-  products.forEach(product => {
-
-    const card =
-      document.createElement('div');
-
-    card.className =
-      'store-product';
-
-
-    card.innerHTML = `
-
-      <a
-        href="product.html?id=${encodeURIComponent(product.id)}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <img
-          class="store-product-image"
-          src="${product.image_url}"
-          alt="${escapeHTML(product.name)}"
-        >
-
-      </a>
-
-
-      <div class="store-product-info">
-
-        <div class="store-product-name">
-
-          <a
-            href="product.html?id=${encodeURIComponent(product.id)}"
-            target="_blank"
-            rel="noopener"
-          >
-            ${escapeHTML(product.name)}
-          </a>
-
-        </div>
-
-
-        <div class="store-product-price">
-          $${Number(product.price).toFixed(2)}
-        </div>
-      </div>
-    `;
-    availableGrid.appendChild(card);
-  });
-}
-/* =========================================================
-   SOLD PRODUCTS
-========================================================= */
-
-function renderSold(products) {
-
-  soldGrid.innerHTML = '';
-
-  if (!products.length) {
-    soldPile.style.display = 'none';
-    return;
-  }
-
-  soldPile.style.display = '';
-
-  products.forEach(product => {
-
-    const card = document.createElement('div');
-
-    card.className = 'sold-product';
-
-    card.innerHTML = `
-
-      <a href="product.html?id=${encodeURIComponent(product.id)}">
-
-        <img
-          class="sold-product-image"
-          src="${product.image_url}"
-          alt="${escapeHTML(product.name)}"
-        >
-
-      </a>
-
-      <div class="sold-product-info">
-
-        <a href="product.html?id=${encodeURIComponent(product.id)}">
-          ${escapeHTML(product.name)}
-        </a>
-
-        <br>
-
-        sold
-
-      </div>
-    `;
-
-    soldGrid.appendChild(card);
-
-  });
-}
-
-
-/* =========================================================
-   BASIC HTML ESCAPE
-========================================================= */
-
-function escapeHTML(value) {
-
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-
-}
-
-
-/* =========================================================
-   START
-========================================================= */
-
-loadProducts();
-
-</script>
-
 </body>
-</html>
