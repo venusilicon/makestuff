@@ -448,7 +448,7 @@ function renderTransaction() {
 
   totalContainer.innerHTML = `total<br>$${total.toFixed(2)}`;
   actionsContainer.innerHTML = `
-    <a href="index.html" class="transaction-button">back to store</a>
+    <a href="https://siliconvenus.online/store/" class="transaction-button">back to store</a>
     <button id="continue-button" class="transaction-button" type="button">continue</button>
   `;
   document.getElementById('continue-button').addEventListener('click', startStripeCheckout);
