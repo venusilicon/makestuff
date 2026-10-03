@@ -23,8 +23,6 @@ a:hover { font-size:3vw; }
 .transaction-item-price { text-align:right; white-space:nowrap; }
 .transaction-item-remove { display:block; width:7vw; height:7vw; margin:.5vw auto 0; background:none; border:none; padding:0; cursor:pointer; background-image:url('hand.png'); background-size:contain; background-repeat:no-repeat; background-position:center; transform-origin:center; }
 .transaction-item-remove:hover { transform:scale(1.35); }
-.transaction-clear-all { position:absolute; top:0; right:0; width:7vw; height:7vw; background:none; border:none; padding:0; cursor:pointer; background-image:url('removal.png'); background-size:contain; background-repeat:no-repeat; background-position:center; z-index:2; transform-origin:top right; }
-.transaction-clear-all:hover { transform:scale(1.35); }
 .transaction-total { margin-top:8vw; line-height:1.25; }
 .transaction-actions { margin-top:4vw; display:flex; gap:3vw; }
 .transaction-button { font-family:'Quicksand',sans-serif; font-size:1.5vw; letter-spacing:-.2px; color:#232323; background:none; border:none; padding:0; cursor:pointer; }
@@ -49,7 +47,6 @@ footer { text-align:right; margin-top:20%; font-size:1.5vw; color:#232323; }
 </head>
 <body>
 <main class="transaction">
-  <button id="clear-all-button" class="transaction-clear-all" type="button" aria-label="Remove all wroughts from basket"></button>
   <div id="transaction-items" class="transaction-items"></div>
   <div id="transaction-total" class="transaction-total"></div>
   <div id="transaction-actions" class="transaction-actions"></div>
@@ -100,7 +97,6 @@ let checkoutSessionId = null;
 const itemsContainer = document.getElementById('transaction-items');
 const totalContainer = document.getElementById('transaction-total');
 const actionsContainer = document.getElementById('transaction-actions');
-const clearAllButton = document.getElementById('clear-all-button');
 const checkoutSection = document.getElementById('checkout-section');
 const customerEmail = document.getElementById('customer-email');
 const purchaseButton = document.getElementById('purchase-button');
@@ -155,12 +151,6 @@ function removeFromBasket(productId) {
   renderTransaction();
 }
 
-function clearBasket() {
-  if (checkoutStarted) return;
-  localStorage.removeItem(BASKET_KEY);
-  localStorage.removeItem(BASKET_ACTIVITY_KEY);
-  renderTransaction();
-}
 
 function escapeHTML(value) {
   return String(value ?? '')
@@ -275,7 +265,7 @@ shippingAddressElement = stripeCheckout.createShippingAddressElement({
     renderStripeTotals(stripeActions.getSession());
 
     checkoutStarted = true;
-    clearAllButton.style.display = 'none';
+  
     document.querySelectorAll('.transaction-item-remove').forEach(button => {
       button.style.display = 'none';
     });
@@ -416,7 +406,6 @@ function renderTransaction() {
   itemsContainer.innerHTML = '';
   totalContainer.innerHTML = '';
   actionsContainer.innerHTML = '';
-  clearAllButton.style.display = basket.length && !checkoutStarted ? 'block' : 'none';
 
   if (!basket.length) {
     checkoutSection.classList.remove('visible');
@@ -454,7 +443,6 @@ function renderTransaction() {
   document.getElementById('continue-button').addEventListener('click', startStripeCheckout);
 }
 
-clearAllButton.addEventListener('click', clearBasket);
 purchaseButton.addEventListener('click', purchase);
 renderTransaction();
 </script>
