@@ -4,21 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>store</title>
-
 <!-- Google Quicksand font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
   href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap"
-  rel="stylesheet"
->
-
+  rel="stylesheet">
 <style>
-
 /* =========================================================
    BASE
 ========================================================= */
-
 html,
 body {
   margin: 0;
@@ -26,13 +21,11 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Quicksand', sans-serif;
   background: #e8b17b;
@@ -41,18 +34,13 @@ body {
   padding: 5%;
   letter-spacing: -0.2px;
 }
-
 a {
   color: #232323;
 }
-
 a:hover {
   font-size: 3vw;
 }
-
-
 /* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
-
 .scroll-wrap {
   width: 100%;
   max-width: 100%;
@@ -65,14 +53,12 @@ a:hover {
   -webkit-overflow-scrolling: touch;
   height: calc(10 * 1h);
 }
-
 .product {
   flex: 0 0 auto;
   width: 35vw;
   scroll-snap-align: start;
   text-align: justify;
 }
-
 .product img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -81,38 +67,28 @@ a:hover {
   display: block;
   border-radius: 6px;
 }
-
 .product-info {
   line-height: 1.25;
 }
-
-
 /* =========================================================
    FOOTER
 ========================================================= */
-
 footer {
   text-align: right;
   margin-top: 20%;
   font-size: 1.5vw;
   color: #232323;
 }
-
-
 /* =========================================================
    STORE
 ========================================================= */
-
 .store {
   margin-left: 5%;
   margin-right: 5%;
 }
-
-
 /* =========================================================
-   SHOP ALL
+   SHOP everything
 ========================================================= */
-
 .available-grid {
   width: 100%;
   display: grid;
@@ -120,13 +96,11 @@ footer {
   gap: 4vw 2vw;
   margin-top: 2vw;
 }
-
 .store-product {
   width: 100%;
   text-align: justify;
   position: relative;
 }
-
 .store-product-image {
   width: 100%;
   aspect-ratio: 5 / 4;
@@ -135,7 +109,6 @@ footer {
   display: block;
   border-radius: none;
 }
-
 .store-product-info {
   line-height: 1.25;
   display: flex;
@@ -144,126 +117,16 @@ footer {
   gap: 1vw;
   margin-top: 0.5vw;
 }
-
 .store-product-name {
   text-align: left;
 }
-
 .store-product-price {
   text-align: right;
   white-space: nowrap;
 }
-
-.quick-add {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.5vw;
-  letter-spacing: -0.2px;
-  color: #232323;
-
-  cursor: pointer;
-}
-
-.quick-add:hover {
-  font-size: 3vw;
-}
-
-
-/* =========================================================
-   DRAG / QUICK-ADD
-========================================================= */
-
-.drag-handle {
-  position: absolute;
-  top: 0.55vw;
-  right: 0.35vw;
-
-  display: none;
-
-  width: 1.25vw;
-  height: 1.8vw;
-
-  grid-template-columns: repeat(2, 0.3vw);
-  grid-template-rows: repeat(3, 0.3vw);
-
-  gap: 0.22vw;
-
-  align-items: center;
-  justify-content: center;
-
-  cursor: grab;
-
-  z-index: 10;
-
-  user-select: none;
-
-  touch-action: none;
-}
-
-.quick-add-mode .drag-handle {
-  display: grid;
-}
-
-.drag-handle:active {
-  cursor: grabbing;
-}
-
-.drag-handle span {
-  width: 0.22vw;
-  height: 0.22vw;
-
-  background: #232323;
-  border-radius: 50%;
-}
-
-.basket-control.drag-over {
-  transform: translateX(-50%) scale(1.15);
-}
-
-.basket-popout.drag-over {
-  border-width: 2px;
-}
-
-
-/* =========================================================
-   CUSTOM DRAG PREVIEW
-========================================================= */
-
-.drag-preview {
-  position: fixed;
-
-  width: 12vw;
-  aspect-ratio: 4 / 5;
-
-  object-fit: cover;
-
-  opacity: 0.8;
-
-  pointer-events: none;
-
-  z-index: 2000;
-
-  transform: translate(-50%, -50%) rotate(2deg);
-
-  box-shadow: 0 0 0 1px #232323;
-
-  display: none;
-}
-
-.drag-preview.active {
-  display: block;
-}
-
-
 /* =========================================================
    SOLD PILE
 ========================================================= */
-
 .sold-pile {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -271,7 +134,6 @@ footer {
   margin-top: 8vw;
   padding: 0;
 }
-
 .sold-grid {
   display: grid;
   grid-template-columns: repeat(5, 20vw);
@@ -282,12 +144,10 @@ footer {
   min-width: 100%;
   min-height: 100%;
 }
-
 .sold-product {
   width: 20vw;
   text-align: justify;
 }
-
 .sold-product-image {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -296,408 +156,114 @@ footer {
   display: block;
   border-radius: 6px;
 }
-
 .sold-product-info {
   line-height: 1.25;
   margin-top: 0.5vw;
 }
-
-
 /* =========================================================
    STORE LABELS
 ========================================================= */
-
 .store-section-label {
   margin-top: 4vw;
   margin-bottom: 1vw;
 }
-
-
 /* =========================================================
    EMPTY STATES
 ========================================================= */
-
 .store-empty {
   line-height: 1.25;
 }
-
-
-/* =========================================================
-   BASKET
-========================================================= */
-
-.basket-control {
-  position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
-
-.basket-button {
-  font-family: 'Quicksand', sans-serif;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.basket-button img {
-  display: block;
-  width: 7vw;
-  height: auto;
-}
-
-.basket-button:hover img {
-  transform: scale(1.2);
-}
-
-.basket-popout {
-  position: fixed;
-  bottom: calc(5% + 7vw + 1vw);
-  left: 50%;
-  transform: translateX(-50%) scale(0.96);
-  transform-origin: bottom center;
-
-  width: min(90vw, 900px);
-
-  background: #e8b17b;
-  border: 1px solid #232323;
-  padding: 2vw;
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    visibility 0.2s ease;
-
-  z-index: 999;
-}
-
-.basket-popout.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) scale(1);
-}
-
-.basket-items {
-  display: flex;
-  gap: 2vw;
-  overflow-x: auto;
-  padding-bottom: 1vw;
-}
-
-.basket-item {
-  flex: 0 0 18vw;
-  text-align: center;
-}
-
-.basket-item-image {
-  width: 100%;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  display: block;
-  background: #232323;
-  border-radius: 6px;
-}
-
-.basket-remove {
-  display: block;
-
-  width: 7vw;
-  height: 7vw;
-
-  margin: 0.5vw auto 0;
-
-  background: none;
-  border: none;
-  padding: 0;
-
-  cursor: pointer;
-
-  background-image: url('hand.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.basket-remove:hover {
-  transform: scale(1.15);
-}
-
-.basket-purchase {
-  display: block;
-  margin-top: 2vw;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.5vw;
-  color: #232323;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.basket-purchase:hover {
-  font-size: 3vw;
-}
-
-.basket-empty {
-  line-height: 1.25;
-}
-
-
-/* =========================================================
-   BASKET LOADER
-========================================================= */
-
-.basket-loader {
-  width: 4vw;
-  height: 2vw;
-
-  position: relative;
-
-  margin: 0 auto;
-
-  display: none;
-}
-
-.basket-loader.active {
-  display: block;
-}
-
-.basket-loader-circle {
-  position: absolute;
-
-  top: 50%;
-  width: 2vw;
-  height: 2vw;
-
-  border: 1px solid #232323;
-  border-radius: 50%;
-
-  transform: translateY(-50%);
-}
-
-.basket-loader-circle:first-child {
-  left: 0;
-  animation: basket-circle-left 1.2s ease-in-out infinite;
-}
-
-.basket-loader-circle:last-child {
-  right: 0;
-  animation: basket-circle-right 1.2s ease-in-out infinite;
-}
-
-@keyframes basket-circle-left {
-
-  0%,
-  100% {
-    left: 0;
-  }
-
-  50% {
-    left: 1vw;
-  }
-}
-
-@keyframes basket-circle-right {
-
-  0%,
-  100% {
-    right: 0;
-  }
-
-  50% {
-    right: 1vw;
-  }
-}
-
-</style>
-</head>
-
-
+</style></head>
 <body>
-
-
-<!-- =======================================================
-     BASKET
-======================================================== -->
-
-<div class="basket-control">
-
-  <button
-    id="basket-button"
-    class="basket-button"
-    type="button"
-    aria-label="Open basket"
-  >
-    <img
-      src="basket.png"
-      alt=""
-    >
-  </button>
-
-</div>
-
-
-<div
-  id="basket-popout"
-  class="basket-popout"
->
-
-  <div
-    id="basket-items"
-    class="basket-items"
-  ></div>
-
-  <div
-    id="basket-loader"
-    class="basket-loader"
-    aria-hidden="true"
-  >
-    <div class="basket-loader-circle"></div>
-    <div class="basket-loader-circle"></div>
-  </div>
-
-  <button
-    id="basket-purchase"
-    class="basket-purchase"
-    type="button"
-  >
-    purchase
-  </button>
-
-</div>
-
-
 <!-- =======================================================
      NAVIGATION
 ======================================================== -->
-
 <div class="scroll-wrap">
-
   <div class="product">
     <a href="https://siliconvenus.online/">
       <img src="goback.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://www.patreon.com/cw/venusili">
       <img src="patreon.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://kick.com/venusili">
       <img src="kick.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://instagram.com/silimakestuff">
       <img src="ig.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://www.youtube.com/@venusili">
       <img src="youtube.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://siliconvenus.online/tip">
       <img src="tip.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://siliconvenus.online/sound">
       <img src="sound.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://siliconvenus.online/info">
       <img src="info.png" alt="">
-    </a>
-  </div>
+    </a></div>
 
   <div class="product">
     <a href="https://siliconvenus.online/perception">
       <img src="perception.png" alt="">
-    </a>
-  </div>
-
+    </a></div>
 </div>
-
-
 <!-- =======================================================
      STORE
 ======================================================== -->
-
 <main class="store">
-
   <div class="store-section-label">
-    shop all
+    shop everything
   </div>
-
   <div id="available-grid" class="available-grid">
     <!-- Products loaded from Supabase -->
   </div>
-
-
-  <div id="sold-pile" class="sold-pile">
-
+<div id="sold-pile" class="sold-pile">
     <div id="sold-grid" class="sold-grid">
       <!-- Sold products loaded from Supabase -->
     </div>
-
   </div>
-
 </main>
-
-
 <br><br>
 <br><br><br><br>
 <br><br>
 <br><br>
 <br><br><br><br>
 <br><br>
-
 <a href="https://www.youtube.com/playlist?list=PLHQySWWGH7T4">
   tune into zoom out for further updates
 </a>
-
-
 <!-- =======================================================
      FOOTER
 ======================================================== -->
-
 <footer>
   © 2026 venusilicon
 </footer>
-
-
 <!-- =======================================================
      SUPABASE
 ======================================================== -->
-
 <script type="module">
-
 import { createClient } from
 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-
 /* =========================================================
    SUPABASE CONNECTION
 ========================================================= */
-
 const SUPABASE_URL =
   "https://ttatoxpeeifoyenlbtro.supabase.co";
 
@@ -708,12 +274,9 @@ const supabase = createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
-
-
 /* =========================================================
    ELEMENTS
 ========================================================= */
-
 const availableGrid =
   document.getElementById('available-grid');
 
@@ -725,486 +288,11 @@ const soldPile =
 
 const productMap =
   new Map();
-
-let quickAddMode = false;
-
-
-/* =========================================================
-   BASKET
-========================================================= */
-
-const basketControl =
-  document.querySelector('.basket-control');
-
-const basketButton =
-  document.getElementById('basket-button');
-
-const basketPopout =
-  document.getElementById('basket-popout');
-
-const basketItemsContainer =
-  document.getElementById('basket-items');
-
-const basketLoader =
-  document.getElementById('basket-loader');
-
-const basketPurchase =
-  document.getElementById('basket-purchase');
-
-const BASKET_KEY =
-  'siliconVenusBasket';
-
-const BASKET_ACTIVITY_KEY =
-  'siliconVenusBasketActivity';
-
-const BASKET_IDLE_TIME =
-  49 * 60 * 1000;
-
-
-/* =========================================================
-   CUSTOM DRAG STATE
-========================================================= */
-
-let activeDrag = null;
-
-
-/* =========================================================
-   BASKET LOADER
-========================================================= */
-
-function showBasketLoader() {
-
-  basketItemsContainer.innerHTML = '';
-
-  basketPurchase.style.display =
-    'none';
-
-  basketLoader.classList.add(
-    'active'
-  );
-
-}
-
-
-function hideBasketLoader() {
-
-  basketLoader.classList.remove(
-    'active'
-  );
-
-}
-
-
-/* =========================================================
-   BASKET STORAGE
-========================================================= */
-
-function getBasket() {
-
-  const saved =
-    localStorage.getItem(
-      BASKET_KEY
-    );
-
-  if (!saved) {
-    return [];
-  }
-
-  try {
-
-    return JSON.parse(
-      saved
-    );
-
-  } catch {
-
-    return [];
-
-  }
-
-}
-
-
-function saveBasket(basket) {
-
-  localStorage.setItem(
-    BASKET_KEY,
-    JSON.stringify(basket)
-  );
-
-  touchBasket();
-
-  renderBasket();
-
-}
-
-
-function touchBasket() {
-
-  localStorage.setItem(
-    BASKET_ACTIVITY_KEY,
-    String(Date.now())
-  );
-
-}
-
-
-/* =========================================================
-   BASKET IDLE EXPIRATION
-========================================================= */
-
-function checkBasketExpiration() {
-
-  const basket =
-    getBasket();
-
-  if (!basket.length) {
-    return;
-  }
-
-  const lastActivity =
-    Number(
-      localStorage.getItem(
-        BASKET_ACTIVITY_KEY
-      )
-    );
-
-  if (
-    lastActivity &&
-    Date.now() - lastActivity >=
-      BASKET_IDLE_TIME
-  ) {
-
-    localStorage.removeItem(
-      BASKET_KEY
-    );
-
-    localStorage.removeItem(
-      BASKET_ACTIVITY_KEY
-    );
-
-    renderBasket();
-
-  }
-
-}
-
-
-checkBasketExpiration();
-
-
-setInterval(
-  checkBasketExpiration,
-  30 * 1000
-);
-
-
-/* =========================================================
-   ADD TO BASKET
-========================================================= */
-
-function addToBasket(product) {
-
-  checkBasketExpiration();
-
-  const basket =
-    getBasket();
-
-  const alreadyExists =
-    basket.some(
-      item => item.id === product.id
-    );
-
-  if (alreadyExists) {
-
-    openBasket();
-
-    return false;
-
-  }
-
-
-  basket.unshift({
-
-    id: product.id,
-
-    name: product.name,
-
-    price: Number(product.price),
-
-    image_url: product.image_url
-
-  });
-
-
-  saveBasket(
-    basket
-  );
-
-  openBasket();
-
-  showBasketLoader();
-
-
-  setTimeout(() => {
-
-    hideBasketLoader();
-
-    renderBasket();
-
-  }, 1500);
-
-
-  return true;
-
-}
-
-
-/* =========================================================
-   REMOVE FROM BASKET
-========================================================= */
-
-function removeFromBasket(
-  productId
-) {
-
-  const basket =
-    getBasket();
-
-  const updated =
-    basket.filter(
-      item =>
-        item.id !== productId
-    );
-
-  saveBasket(
-    updated
-  );
-
-}
-
-
-/* =========================================================
-   RENDER BASKET
-========================================================= */
-
-function renderBasket() {
-
-  checkBasketExpiration();
-
-  const basket =
-    getBasket();
-
-  basketItemsContainer.innerHTML =
-    '';
-
-
-  if (!basket.length) {
-
-    basketItemsContainer.innerHTML = `
-      <div class="basket-empty">
-        basket is empty
-      </div>
-    `;
-
-    basketPurchase.style.display =
-      'none';
-
-    return;
-
-  }
-
-
-  basketPurchase.style.display =
-    'block';
-
-
-  basket.forEach(item => {
-
-    const wrapper =
-      document.createElement(
-        'div'
-      );
-
-    wrapper.className =
-      'basket-item';
-
-
-    wrapper.innerHTML = `
-
-      <a
-        href="product.html?id=${encodeURIComponent(item.id)}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <img
-          class="basket-item-image"
-          src="${item.image_url}"
-          alt="${escapeHTML(item.name)}"
-        >
-
-      </a>
-
-
-<button
-  class="basket-remove"
-  type="button"
-  data-product-id="${item.id}"
-  aria-label="Remove ${escapeHTML(item.name)} from basket"
->
-</button>
-
-    `;
-
-
-    basketItemsContainer.appendChild(
-      wrapper
-    );
-
-  });
-
-
-  document
-    .querySelectorAll(
-      '.basket-remove'
-    )
-    .forEach(button => {
-
-      button.addEventListener(
-        'click',
-        () => {
-
-          removeFromBasket(
-            button.dataset.productId
-          );
-
-        }
-      );
-
-    });
-
-}
-
-
-/* =========================================================
-   OPEN / CLOSE BASKET
-========================================================= */
-
-function openBasket() {
-
-  checkBasketExpiration();
-
-  basketPopout.classList.add(
-    'open'
-  );
-
-  touchBasket();
-
-  renderBasket();
-
-}
-
-
-function closeBasket() {
-
-  basketPopout.classList.remove(
-    'open'
-  );
-
-}
-
-
-basketButton.addEventListener(
-  'click',
-  () => {
-
-    if (
-      basketPopout.classList.contains(
-        'open'
-      )
-    ) {
-
-      closeBasket();
-
-    } else {
-
-      openBasket();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   BASKET ACTIVITY
-========================================================= */
-
-basketPopout.addEventListener(
-  'click',
-  () => {
-
-    touchBasket();
-
-  }
-);
-
-
-/* =========================================================
-   PURCHASE
-========================================================= */
-
-basketPurchase.addEventListener(
-  'click',
-  () => {
-
-    const basket =
-      getBasket();
-
-    if (!basket.length) {
-      return;
-    }
-
-    window.location.href = '/store/take-home-sequence/';
-
-  }
-);
-
-
-/* =========================================================
-   INITIAL BASKET RENDER
-========================================================= */
-
-renderBasket();
-
-
-/* =========================================================
-   QUICK-ADD MODE
-========================================================= */
-
-function setQuickAddMode(
-  enabled
-) {
-
-  quickAddMode =
-    enabled;
-
-  availableGrid.classList.toggle(
-    'quick-add-mode',
-    quickAddMode
-  );
-
-}
-
-
 /* =========================================================
    HOTKEYS
 ========================================================= */
-
 const COPY_EMAIL =
   'moonlight@siliconvenus.online';
-
 
 document.addEventListener(
   'keydown',
@@ -1213,93 +301,26 @@ document.addEventListener(
     const tag =
       event.target.tagName;
 
-
     if (
       tag === 'INPUT' ||
       tag === 'TEXTAREA' ||
       tag === 'SELECT' ||
       event.target.isContentEditable
     ) {
-
       return;
-
     }
-
-
     if (event.repeat) {
       return;
     }
-
-
     /* -----------------------------------------------------
-       CAPS LOCK ON + A
-       QUICK ADD
+       M COPY EMAIL
     ----------------------------------------------------- */
-
-    if (
-      event.key.toLowerCase() === 'a' &&
-      event.getModifierState(
-        'CapsLock'
-      )
-    ) {
-
-      event.preventDefault();
-
-      setQuickAddMode(
-        !quickAddMode
-      );
-
-      return;
-
-    }
-
-
-    /* -----------------------------------------------------
-       CAPS LOCK OFF + A
-       BASKET
-    ----------------------------------------------------- */
-
-    if (
-      event.key.toLowerCase() === 'a' &&
-      !event.getModifierState(
-        'CapsLock'
-      )
-    ) {
-
-      event.preventDefault();
-
-      if (
-        basketPopout.classList.contains(
-          'open'
-        )
-      ) {
-
-        closeBasket();
-
-      } else {
-
-        openBasket();
-
-      }
-
-      return;
-
-    }
-
-
-    /* -----------------------------------------------------
-       M
-       COPY EMAIL
-    ----------------------------------------------------- */
-
     if (
       event.key.toLowerCase() === 'm'
     ) {
 
       event.preventDefault();
-
       try {
-
         await navigator.clipboard.writeText(
           COPY_EMAIL
         );
@@ -1309,362 +330,15 @@ document.addEventListener(
         );
 
       } catch (error) {
-
         console.error(
           'Could not copy email:',
           error
         );
-
       }
-
       return;
-
     }
-
   }
 );
-
-
-/* =========================================================
-   CUSTOM POINTER DRAG
-========================================================= */
-
-availableGrid.addEventListener(
-  'pointerdown',
-  event => {
-
-    if (!quickAddMode) {
-      return;
-    }
-
-
-    const handle =
-      event.target.closest(
-        '.drag-handle'
-      );
-
-
-    if (!handle) {
-      return;
-    }
-
-
-    const productId =
-      handle.dataset.productId;
-
-
-    const product =
-      productMap.get(
-        String(productId)
-      );
-
-
-    if (!product) {
-      return;
-    }
-
-
-    if (
-      product.status !== 'available'
-    ) {
-      return;
-    }
-
-
-    event.preventDefault();
-
-
-    handle.setPointerCapture(
-      event.pointerId
-    );
-
-
-    const preview =
-      document.createElement(
-        'img'
-      );
-
-    preview.className =
-      'drag-preview';
-
-    preview.src =
-      product.image_url;
-
-    preview.alt =
-      '';
-
-    document.body.appendChild(
-      preview
-    );
-
-
-    activeDrag = {
-
-      pointerId:
-        event.pointerId,
-
-      productId:
-        String(productId),
-
-      handle,
-
-      preview
-
-    };
-
-
-    preview.style.left =
-      `${event.clientX}px`;
-
-    preview.style.top =
-      `${event.clientY}px`;
-
-    preview.classList.add(
-      'active'
-    );
-
-
-    handle.classList.add(
-      'dragging'
-    );
-
-    basketControl.classList.remove(
-      'drag-over'
-    );
-
-    basketPopout.classList.remove(
-      'drag-over'
-    );
-
-  }
-);
-
-
-/* =========================================================
-   POINTER MOVE
-========================================================= */
-
-document.addEventListener(
-  'pointermove',
-  event => {
-
-    if (!activeDrag) {
-      return;
-    }
-
-
-    if (
-      event.pointerId !==
-      activeDrag.pointerId
-    ) {
-
-      return;
-
-    }
-
-
-    event.preventDefault();
-
-
-    activeDrag.preview.style.left =
-      `${event.clientX}px`;
-
-    activeDrag.preview.style.top =
-      `${event.clientY}px`;
-
-
-    const elementUnderPointer =
-      document.elementFromPoint(
-        event.clientX,
-        event.clientY
-      );
-
-
-    const overBasketControl =
-      elementUnderPointer &&
-      basketControl.contains(
-        elementUnderPointer
-      );
-
-
-    const overBasketPopout =
-      elementUnderPointer &&
-      basketPopout.contains(
-        elementUnderPointer
-      );
-
-
-    basketControl.classList.toggle(
-      'drag-over',
-      Boolean(overBasketControl)
-    );
-
-    basketPopout.classList.toggle(
-      'drag-over',
-      Boolean(overBasketPopout)
-    );
-
-  },
-  {
-    passive: false
-  }
-);
-
-
-/* =========================================================
-   POINTER UP
-========================================================= */
-
-document.addEventListener(
-  'pointerup',
-  event => {
-
-    if (!activeDrag) {
-      return;
-    }
-
-
-    if (
-      event.pointerId !==
-      activeDrag.pointerId
-    ) {
-
-      return;
-
-    }
-
-
-    const elementUnderPointer =
-      document.elementFromPoint(
-        event.clientX,
-        event.clientY
-      );
-
-
-    const droppedOnBasketControl =
-      elementUnderPointer &&
-      basketControl.contains(
-        elementUnderPointer
-      );
-
-
-    const droppedOnBasketPopout =
-      elementUnderPointer &&
-      basketPopout.contains(
-        elementUnderPointer
-      );
-
-
-    const droppedOnBasket =
-      droppedOnBasketControl ||
-      droppedOnBasketPopout;
-
-
-    const product =
-      productMap.get(
-        activeDrag.productId
-      );
-
-
-    if (
-      droppedOnBasket &&
-      product &&
-      quickAddMode
-    ) {
-
-      const added =
-        addToBasket(
-          product
-        );
-
-
-      if (added) {
-
-        setQuickAddMode(
-          false
-        );
-
-      }
-
-    }
-
-
-    finishDrag();
-
-  }
-);
-
-
-/* =========================================================
-   POINTER CANCEL
-========================================================= */
-
-document.addEventListener(
-  'pointercancel',
-  () => {
-
-    if (!activeDrag) {
-      return;
-    }
-
-    finishDrag();
-
-  }
-);
-
-
-/* =========================================================
-   FINISH DRAG
-========================================================= */
-
-function finishDrag() {
-
-  if (!activeDrag) {
-    return;
-  }
-
-
-  activeDrag.handle.classList.remove(
-    'dragging'
-  );
-
-
-  if (
-    activeDrag.preview &&
-    activeDrag.preview.parentNode
-  ) {
-
-    activeDrag.preview.parentNode.removeChild(
-      activeDrag.preview
-    );
-
-  }
-
-
-  basketControl.classList.remove(
-    'drag-over'
-  );
-
-  basketPopout.classList.remove(
-    'drag-over'
-  );
-
-
-  activeDrag = null;
-
-}
-
-
-/* =========================================================
-   INITIALIZE BASKET DROP TARGETS
-========================================================= */
-
-/*
-   The basket itself is detected by the custom pointer-drag
-   system above, so native HTML5 drop listeners are not needed.
-*/
-
-
 /* =========================================================
    LOAD PRODUCTS
 ========================================================= */
@@ -1838,14 +512,10 @@ function renderAvailable(
 
     }
   );
-
 }
-
-
 /* =========================================================
    SOLD PRODUCTS
 ========================================================= */
-
 function renderSold(
   products
 ) {
@@ -1896,19 +566,14 @@ function renderSold(
 
 
         <div class="sold-product-info">
-
           <a
             href="product.html?id=${encodeURIComponent(product.id)}"
           >
             ${escapeHTML(product.name)}
           </a>
-
           <br>
-
           sold
-
         </div>
-
       `;
 
 
@@ -1918,18 +583,13 @@ function renderSold(
 
     }
   );
-
 }
-
-
 /* =========================================================
    BASIC HTML ESCAPE
 ========================================================= */
-
 function escapeHTML(
   value
 ) {
-
   return String(
     value ?? ''
   )
@@ -1953,17 +613,9 @@ function escapeHTML(
       /'/g,
       '&#039;'
     );
-
 }
-
-
 /* =========================================================
    START
 ========================================================= */
-
 loadProducts();
-
-</script>
-
-</body>
-</html>
+</script></body></html>
