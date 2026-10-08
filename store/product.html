@@ -398,14 +398,13 @@ function renderInfo(product) {
 
   }
 
+if (product.dimensions) {
 
-  if (product.dimensions) {
+  sections.push(
+    `${product.dimensions.height}" H × ${product.dimensions.width}" W × ${product.dimensions.depth}" D`
+  );
 
-    sections.push(
-      String(product.dimensions)
-    );
-
-  }
+}
 
 
   if (product.care_instructions) {
