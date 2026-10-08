@@ -42,6 +42,8 @@ body {
 a {
   color: #232323;
 }
+
+
 /* =========================================================
    PRODUCT
 ========================================================= */
@@ -375,13 +377,31 @@ function renderInfo(product) {
   }
 
 
-  if (product.dimensions) {
+if (product.padding_density) {
 
-    sections.push(
-      String(product.dimensions)
-    );
+  sections.push(
+    `padding density: ${product.padding_density}`
+  );
 
-  }
+}
+
+
+if (product.compression_tolerance) {
+
+  sections.push(
+    `compression tolerance: ${product.compression_tolerance}`
+  );
+
+}
+
+
+if (product.shape_retention) {
+
+  sections.push(
+    `shape retention: ${product.shape_retention}`
+  );
+
+}
 
 
   if (product.care_instructions) {
