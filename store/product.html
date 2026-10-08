@@ -112,11 +112,347 @@ a:hover {
   line-height: 1.25;
 }
 
+
+/* =========================================================
+   BASKET CONTROL
+========================================================= */
+
+.basket-control {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.basket-button {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5vw;
+  letter-spacing: -0.2px;
+  color: #232323;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.basket-button:hover {
+  font-size: 3vw;
+}
+
+
+/* =========================================================
+   BASKET POPOUT
+========================================================= */
+
+.basket-popout {
+  position: fixed;
+  top: calc(5% + 3vw);
+  left: 50%;
+  transform: translateX(-50%) scale(0.96);
+  transform-origin: top center;
+
+  width: min(90vw, 900px);
+
+  background: #e8b17b;
+  border: 1px solid #232323;
+
+  padding: 2vw;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  z-index: 999;
+}
+
+.basket-popout.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(-50%) scale(1);
+}
+
+
+/* =========================================================
+   BASKET ITEMS
+========================================================= */
+
+.basket-items {
+  display: flex;
+  gap: 2vw;
+  overflow-x: auto;
+  padding-bottom: 1vw;
+}
+
+.basket-item {
+  flex: 0 0 18vw;
+  text-align: center;
+}
+
+.basket-item-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  background: #232323;
+  border-radius: 6px;
+}
+
+.basket-remove {
+  display: block;
+  margin: 0.5vw auto 0;
+
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5vw;
+  color: #232323;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.basket-remove:hover {
+  font-size: 3vw;
+}
+
+.basket-purchase {
+  display: block;
+  margin-top: 2vw;
+
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5vw;
+  color: #232323;
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.basket-purchase:hover {
+  font-size: 3vw;
+}
+
+.basket-empty {
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   BASKET LOADER
+========================================================= */
+
+.basket-loader {
+  width: 4vw;
+  height: 2vw;
+
+  position: relative;
+
+  margin: 0 auto;
+
+  display: none;
+}
+
+.basket-loader.active {
+  display: block;
+}
+
+.basket-loader-circle {
+  position: absolute;
+
+  top: 50%;
+  width: 2vw;
+  height: 2vw;
+
+  border: 1px solid #232323;
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+}
+
+.basket-loader-circle:first-child {
+  left: 0;
+  animation: basket-circle-left 1.2s ease-in-out infinite;
+}
+
+.basket-loader-circle:last-child {
+  right: 0;
+  animation: basket-circle-right 1.2s ease-in-out infinite;
+}
+
+@keyframes basket-circle-left {
+
+  0%,
+  100% {
+    left: 0;
+  }
+
+  50% {
+    left: 1vw;
+  }
+}
+
+@keyframes basket-circle-right {
+
+  0%,
+  100% {
+    right: 0;
+  }
+
+  50% {
+    right: 1vw;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  body {
+    font-size: 4vw;
+  }
+
+  .basket-button {
+    font-size: 4vw;
+  }
+
+  .basket-button:hover {
+    font-size: 6vw;
+  }
+
+  .basket-popout {
+    top: calc(5% + 8vw);
+    width: 90vw;
+    padding: 4vw;
+  }
+
+  .basket-items {
+    gap: 4vw;
+  }
+
+  .basket-item {
+    flex: 0 0 35vw;
+  }
+
+  .basket-remove,
+  .basket-purchase {
+    font-size: 4vw;
+  }
+
+  .basket-remove:hover,
+  .basket-purchase:hover {
+    font-size: 6vw;
+  }
+
+  .basket-loader {
+    width: 10vw;
+    height: 5vw;
+  }
+
+  .basket-loader-circle {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  @keyframes basket-circle-left {
+
+    0%,
+    100% {
+      left: 0;
+    }
+
+    50% {
+      left: 2.5vw;
+    }
+  }
+
+  @keyframes basket-circle-right {
+
+    0%,
+    100% {
+      right: 0;
+    }
+
+    50% {
+      right: 2.5vw;
+    }
+  }
+
+}
+
 </style>
 </head>
 
 
 <body>
+
+
+<!-- =======================================================
+     BASKET
+======================================================== -->
+
+<div class="basket-control">
+
+  <button
+    id="basket-button"
+    class="basket-button"
+    type="button"
+  >
+    basket
+  </button>
+
+</div>
+
+
+<div
+  id="basket-popout"
+  class="basket-popout"
+>
+
+  <div
+    id="basket-items"
+    class="basket-items"
+  ></div>
+
+
+  <!-- VESICA / VENN LOADER -->
+
+  <div
+    id="basket-loader"
+    class="basket-loader"
+    aria-hidden="true"
+  >
+
+    <div class="basket-loader-circle"></div>
+    <div class="basket-loader-circle"></div>
+
+  </div>
+
+
+  <button
+    id="basket-purchase"
+    class="basket-purchase"
+    type="button"
+  >
+    purchase
+  </button>
+
+</div>
+
+
 <!-- =======================================================
      PRODUCT
 ======================================================== -->
@@ -184,6 +520,40 @@ const actionContainer =
 
 
 /* =========================================================
+   BASKET ELEMENTS
+========================================================= */
+
+const basketButton =
+  document.getElementById('basket-button');
+
+const basketPopout =
+  document.getElementById('basket-popout');
+
+const basketItemsContainer =
+  document.getElementById('basket-items');
+
+const basketLoader =
+  document.getElementById('basket-loader');
+
+const basketPurchase =
+  document.getElementById('basket-purchase');
+
+
+/* =========================================================
+   BASKET STORAGE
+========================================================= */
+
+const BASKET_KEY =
+  'siliconVenusBasket';
+
+const BASKET_ACTIVITY_KEY =
+  'siliconVenusBasketActivity';
+
+const BASKET_IDLE_TIME =
+  20 * 60 * 1000;
+
+
+/* =========================================================
    PRODUCT ID
 ========================================================= */
 
@@ -193,6 +563,435 @@ const params =
 const productId =
   params.get('id');
 
+
+/* =========================================================
+   BASKET STORAGE FUNCTIONS
+========================================================= */
+
+function getBasket() {
+
+  const saved =
+    localStorage.getItem(BASKET_KEY);
+
+  if (!saved) {
+    return [];
+  }
+
+  try {
+
+    const basket =
+      JSON.parse(saved);
+
+    return Array.isArray(basket)
+      ? basket
+      : [];
+
+  } catch {
+
+    return [];
+
+  }
+
+}
+
+
+function saveBasket(basket) {
+
+  localStorage.setItem(
+    BASKET_KEY,
+    JSON.stringify(basket)
+  );
+
+  touchBasket();
+
+}
+
+
+function touchBasket() {
+
+  localStorage.setItem(
+    BASKET_ACTIVITY_KEY,
+    String(Date.now())
+  );
+
+}
+
+
+/* =========================================================
+   BASKET EXPIRATION
+========================================================= */
+
+function checkBasketExpiration() {
+
+  const basket =
+    getBasket();
+
+  if (!basket.length) {
+    return false;
+  }
+
+
+  const lastActivity =
+    Number(
+      localStorage.getItem(
+        BASKET_ACTIVITY_KEY
+      )
+    );
+
+
+  if (
+    lastActivity &&
+    Date.now() - lastActivity >= BASKET_IDLE_TIME
+  ) {
+
+    localStorage.removeItem(
+      BASKET_KEY
+    );
+
+    localStorage.removeItem(
+      BASKET_ACTIVITY_KEY
+    );
+
+    basketPopout.classList.remove(
+      'open'
+    );
+
+    return true;
+
+  }
+
+
+  return false;
+
+}
+
+
+/* =========================================================
+   BASKET LOADER
+========================================================= */
+
+function showBasketLoader() {
+
+  basketItemsContainer.innerHTML = '';
+
+  basketPurchase.style.display = 'none';
+
+  basketLoader.classList.add(
+    'active'
+  );
+
+}
+
+
+function hideBasketLoader() {
+
+  basketLoader.classList.remove(
+    'active'
+  );
+
+}
+
+
+/* =========================================================
+   ADD TO BASKET
+========================================================= */
+
+function addToBasket(product) {
+
+  checkBasketExpiration();
+
+
+  const basket =
+    getBasket();
+
+
+  const alreadyExists =
+    basket.some(
+      item => item.id === product.id
+    );
+
+
+  if (alreadyExists) {
+
+    openBasket();
+
+    return;
+
+  }
+
+
+  basket.unshift({
+
+    id: product.id,
+
+    name: product.name,
+
+    price: Number(product.price),
+
+    image_url: product.image_url
+
+  });
+
+
+  saveBasket(basket);
+
+
+  openBasket();
+
+
+  /*
+     Give the loader a visible moment to form
+     before showing the basket contents.
+  */
+
+  showBasketLoader();
+
+
+  setTimeout(() => {
+
+    hideBasketLoader();
+
+    renderBasket();
+
+  }, 1500);
+
+}
+
+
+/* =========================================================
+   REMOVE FROM BASKET
+========================================================= */
+
+function removeFromBasket(productId) {
+
+  const basket =
+    getBasket();
+
+
+  const updatedBasket =
+    basket.filter(
+      item => item.id !== productId
+    );
+
+
+  saveBasket(updatedBasket);
+
+
+  renderBasket();
+
+}
+
+
+/* =========================================================
+   RENDER BASKET
+========================================================= */
+
+function renderBasket() {
+
+  if (checkBasketExpiration()) {
+
+    basketItemsContainer.innerHTML = '';
+
+    basketPurchase.style.display = 'none';
+
+    hideBasketLoader();
+
+    return;
+
+  }
+
+
+  const basket =
+    getBasket();
+
+
+  hideBasketLoader();
+
+
+  basketItemsContainer.innerHTML = '';
+
+
+  if (!basket.length) {
+
+    basketItemsContainer.innerHTML = `
+      <div class="basket-empty">
+        basket is empty
+      </div>
+    `;
+
+    basketPurchase.style.display =
+      'none';
+
+    return;
+
+  }
+
+
+  basketPurchase.style.display =
+    'block';
+
+
+  basket.forEach(item => {
+
+    const basketItem =
+      document.createElement('div');
+
+    basketItem.className =
+      'basket-item';
+
+
+    basketItem.innerHTML = `
+
+      <a
+        href="product.html?id=${encodeURIComponent(item.id)}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <img
+          class="basket-item-image"
+          src="${item.image_url}"
+          alt="${escapeHTML(item.name)}"
+        >
+
+      </a>
+
+
+      <button
+        class="basket-remove"
+        type="button"
+        aria-label="Remove ${escapeHTML(item.name)}"
+      >
+        ×
+      </button>
+
+    `;
+
+
+    basketItem
+      .querySelector('.basket-remove')
+      .addEventListener(
+        'click',
+        () => {
+
+          removeFromBasket(
+            item.id
+          );
+
+        }
+      );
+
+
+    basketItemsContainer.appendChild(
+      basketItem
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   OPEN BASKET
+========================================================= */
+
+function openBasket() {
+
+  touchBasket();
+
+  basketPopout.classList.add(
+    'open'
+  );
+
+}
+
+
+/* =========================================================
+   BASKET BUTTON
+========================================================= */
+
+basketButton.addEventListener(
+  'click',
+  () => {
+
+    if (
+      basketPopout.classList.contains(
+        'open'
+      )
+    ) {
+
+      basketPopout.classList.remove(
+        'open'
+      );
+
+    } else {
+
+      openBasket();
+
+      renderBasket();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   BASKET ACTIVITY
+========================================================= */
+
+basketPopout.addEventListener(
+  'click',
+  () => {
+
+    touchBasket();
+
+  }
+);
+
+
+/* =========================================================
+   PURCHASE
+========================================================= */
+
+basketPurchase.addEventListener(
+  'click',
+  () => {
+
+    const basket =
+      getBasket();
+
+
+    if (!basket.length) {
+      return;
+    }
+
+
+    window.location.href =
+      'transaction.html';
+
+  }
+);
+
+
+/* =========================================================
+   AUTOMATIC BASKET EXPIRATION CHECK
+========================================================= */
+
+setInterval(
+  () => {
+
+    if (
+      checkBasketExpiration()
+    ) {
+
+      renderBasket();
+
+    }
+
+  },
+  30 * 1000
+);
 
 
 /* =========================================================
@@ -398,13 +1197,14 @@ function renderInfo(product) {
 
   }
 
-if (product.dimensions) {
 
-  sections.push(
-    `${product.dimensions.height}" H × ${product.dimensions.width}" W × ${product.dimensions.depth}" D`
-  );
+  if (product.dimensions) {
 
-}
+    sections.push(
+      String(product.dimensions)
+    );
+
+  }
 
 
   if (product.care_instructions) {
