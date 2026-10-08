@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>product</title>
-
+<title>store</title>
+<!-- Google Quicksand font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap"
+  rel="stylesheet">
 <style>
-
 /* =========================================================
    BASE
 ========================================================= */
-
 html,
 body {
   margin: 0;
@@ -23,13 +21,11 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Quicksand', sans-serif;
   background: #e8b17b;
@@ -38,423 +34,562 @@ body {
   padding: 5%;
   letter-spacing: -0.2px;
 }
-
 a {
   color: #232323;
-  display: inline-block;
 }
-
 a:hover {
-  transform: scale(1.15);
-  transform-origin: left center;
+  font-size: 3vw;
 }
-
-
+/* ===== HORIZONTAL SCROLL STRIP (UNCHANGED) ===== */
+.scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 2vw;
+  padding: 2vw 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  height: calc(10 * 1h);
+}
+.product {
+  flex: 0 0 auto;
+  width: 35vw;
+  scroll-snap-align: start;
+  text-align: justify;
+}
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #232323;
+  display: block;
+  border-radius: 6px;
+}
+.product-info {
+  line-height: 1.25;
+}
 /* =========================================================
-   PRODUCT
+   FOOTER
 ========================================================= */
-
-.product-page {
-  width: 100%;
+footer {
+  text-align: right;
+  margin-top: 20%;
+  font-size: 1.5vw;
+  color: #232323;
 }
-
-.product-visual {
-  width: 100%;
+/* =========================================================
+   STORE
+========================================================= */
+.store {
+  margin-left: 5%;
+  margin-right: 5%;
 }
-
-.product-images {
+/* =========================================================
+   SHOP everything
+========================================================= */
+.available-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1vw;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4vw 2vw;
+  margin-top: 2vw;
 }
-
-.product-image {
+.store-product {
+  width: 100%;
+  text-align: justify;
+  position: relative;
+}
+.store-product-image {
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
+  background: none;
   display: block;
+  border-radius: none;
+}
+.store-product-info {
+  line-height: 1.25;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1vw;
+  margin-top: 0.5vw;
+}
+.store-product-name {
+  text-align: left;
+}
+.store-product-price {
+  text-align: right;
+  white-space: nowrap;
+}
+/* =========================================================
+   SOLD PILE
+========================================================= */
+.sold-pile {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: auto;
+  margin-top: 8vw;
+  padding: 0;
+}
+.sold-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 20vw);
+  grid-auto-rows: auto;
+  gap: 4vw 2vw;
+
+  width: max-content;
+  min-width: 100%;
+  min-height: 100%;
+}
+.sold-product {
+  width: 20vw;
+  text-align: justify;
+}
+.sold-product-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   background: #232323;
+  display: block;
   border-radius: 6px;
 }
-
-.product-info {
-  width: 100%;
-  margin-top: 4vw;
-  text-align: justify;
-  text-justify: inter-word;
+.sold-product-info {
   line-height: 1.25;
-  white-space: pre-line;
+  margin-top: 0.5vw;
 }
-
-
-
-.sold-message {
+/* =========================================================
+   STORE LABELS
+========================================================= */
+.store-section-label {
   margin-top: 4vw;
+  margin-bottom: 1vw;
 }
-
-.product-error {
+/* =========================================================
+   EMPTY STATES
+========================================================= */
+.store-empty {
   line-height: 1.25;
 }
-
-</style>
-</head>
-
-
+</style></head>
 <body>
 <!-- =======================================================
-     PRODUCT
+     NAVIGATION
 ======================================================== -->
+<div class="scroll-wrap">
+  <div class="product">
+    <a href="https://siliconvenus.online/">
+      <img src="goback.png" alt="">
+    </a></div>
 
-<main class="product-page">
+  <div class="product">
+    <a href="https://www.patreon.com/cw/venusili">
+      <img src="patreon.png" alt="">
+    </a></div>
 
-  <div class="product-visual">
+  <div class="product">
+    <a href="https://kick.com/venusili">
+      <img src="kick.png" alt="">
+    </a></div>
 
-    <div
-      id="product-images"
-      class="product-images"
-    ></div>
+  <div class="product">
+    <a href="https://instagram.com/silimakestuff">
+      <img src="ig.png" alt="">
+    </a></div>
 
+  <div class="product">
+    <a href="https://www.youtube.com/@venusili">
+      <img src="youtube.png" alt="">
+    </a></div>
+
+  <div class="product">
+    <a href="https://siliconvenus.online/tip">
+      <img src="tip.png" alt="">
+    </a></div>
+
+  <div class="product">
+    <a href="https://siliconvenus.online/sound">
+      <img src="sound.png" alt="">
+    </a></div>
+
+  <div class="product">
+    <a href="https://siliconvenus.online/info">
+      <img src="info.png" alt="">
+    </a></div>
+
+  <div class="product">
+    <a href="https://siliconvenus.online/perception">
+      <img src="perception.png" alt="">
+    </a></div>
+</div>
+<!-- =======================================================
+     STORE
+======================================================== -->
+<main class="store">
+  <div class="store-section-label">
+    shop everything
   </div>
-
-
-  <div
-    id="product-info"
-    class="product-info"
-  ></div>
-
-
-  <div id="product-action"></div>
-
+  <div id="available-grid" class="available-grid">
+    <!-- Products loaded from Supabase -->
+  </div>
+<div id="sold-pile" class="sold-pile">
+    <div id="sold-grid" class="sold-grid">
+      <!-- Sold products loaded from Supabase -->
+    </div>
+  </div>
 </main>
-
-
+<br><br>
+<br><br><br><br>
+<br><br>
+<br><br>
+<br><br><br><br>
+<br><br>
+<a href="https://www.youtube.com/playlist?list=PLHQySWWGH7T4">
+  tune into zoom out for further updates
+</a>
+<!-- =======================================================
+     FOOTER
+======================================================== -->
+<footer>
+  © 2026 venusilicon
+</footer>
+<!-- =======================================================
+     SUPABASE
+======================================================== -->
 <script type="module">
-
+import { createClient } from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 /* =========================================================
-   SUPABASE
+   SUPABASE CONNECTION
 ========================================================= */
-
-import {
-  createClient
-} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-
 const SUPABASE_URL =
   "https://ttatoxpeeifoyenlbtro.supabase.co";
 
-
 const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_xvtMRTFOnMUcUP9Pm6e1Rg_d1IOag5g";
-
 
 const supabase = createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
-
-
 /* =========================================================
-   PRODUCT ELEMENTS
+   ELEMENTS
 ========================================================= */
+const availableGrid =
+  document.getElementById('available-grid');
 
-const imagesContainer =
-  document.getElementById('product-images');
+const soldGrid =
+  document.getElementById('sold-grid');
 
-const infoContainer =
-  document.getElementById('product-info');
+const soldPile =
+  document.getElementById('sold-pile');
 
-const actionContainer =
-  document.getElementById('product-action');
-
-
+const productMap =
+  new Map();
 /* =========================================================
-   PRODUCT ID
+   HOTKEYS
 ========================================================= */
+const COPY_EMAIL =
+  'moonlight@siliconvenus.online';
 
-const params =
-  new URLSearchParams(window.location.search);
+document.addEventListener(
+  'keydown',
+  async event => {
 
-const productId =
-  params.get('id');
+    const tag =
+      event.target.tagName;
 
+    if (
+      tag === 'INPUT' ||
+      tag === 'TEXTAREA' ||
+      tag === 'SELECT' ||
+      event.target.isContentEditable
+    ) {
+      return;
+    }
+    if (event.repeat) {
+      return;
+    }
+    /* -----------------------------------------------------
+       M COPY EMAIL
+    ----------------------------------------------------- */
+    if (
+      event.key.toLowerCase() === 'm'
+    ) {
 
-/* =========================================================
-   PRODUCT LOADING
-========================================================= */
+      event.preventDefault();
+      try {
+        await navigator.clipboard.writeText(
+          COPY_EMAIL
+        );
 
-async function loadProduct() {
+        console.log(
+          'Email copied to clipboard.'
+        );
 
-  if (!productId) {
-
-    showError();
-
-    return;
-
+      } catch (error) {
+        console.error(
+          'Could not copy email:',
+          error
+        );
+      }
+      return;
+    }
   }
+);
+/* =========================================================
+   LOAD PRODUCTS
+========================================================= */
 
+async function loadProducts() {
 
   const {
-    data: product,
+    data,
     error
   } = await supabase
     .from('products')
     .select('*')
-    .eq('id', productId)
-    .single();
-
-
-  if (
-    error ||
-    !product
-  ) {
-
-    console.error(
-      'Could not load product:',
-      error
+    .order(
+      'created_at',
+      {
+        ascending: false
+      }
     );
 
-    infoContainer.textContent =
+
+  if (error) {
+
+    console.error(
+      'Could not load products:',
       error
-        ? error.message
-        : 'No product found for this ID.';
+    );
 
     return;
 
   }
 
 
-  renderProduct(product);
+  data.forEach(
+    product => {
 
-}
-
-
-/* =========================================================
-   RENDER PRODUCT
-========================================================= */
-
-function renderProduct(product) {
-
-  document.title =
-    product.name || 'product';
-
-
-  renderImages(product);
-
-  renderInfo(product);
-
-  renderAction(product);
-
-}
-
-
-/* =========================================================
-   RENDER IMAGES
-========================================================= */
-
-function renderImages(product) {
-
-  imagesContainer.innerHTML = '';
-
-
-  let images =
-    product.images;
-
-
-  if (
-    typeof images === 'string'
-  ) {
-
-    try {
-
-      images =
-        JSON.parse(images);
-
-    } catch {
-
-      images = [];
-
-    }
-
-  }
-
-
-  if (
-    !Array.isArray(images)
-  ) {
-
-    images = [];
-
-  }
-
-
-  images.forEach(
-    image => {
-
-      const img =
-        document.createElement('img');
-
-
-      img.className =
-        'product-image';
-
-
-      const src =
-        typeof image === 'string'
-          ? image
-          : image.src;
-
-
-      img.src =
-        src;
-
-
-      img.alt =
-        product.name || 'product';
-
-
-      if (
-        typeof image === 'object' &&
-        image.row != null &&
-        image.column != null
-      ) {
-
-        img.style.gridRow =
-          String(image.row);
-
-        img.style.gridColumn =
-          String(image.column);
-
-      }
-
-
-      imagesContainer.appendChild(
-        img
+      productMap.set(
+        String(product.id),
+        product
       );
 
     }
+  );
+
+
+  const available =
+    data.filter(
+      product =>
+        product.status ===
+        'available'
+    );
+
+
+  const sold =
+    data.filter(
+      product =>
+        product.status ===
+        'sold'
+    );
+
+
+  renderAvailable(
+    available
+  );
+
+  renderSold(
+    sold
   );
 
 }
 
 
 /* =========================================================
-   RENDER PRODUCT INFO
+   AVAILABLE PRODUCTS
 ========================================================= */
 
-function renderInfo(product) {
+function renderAvailable(
+  products
+) {
 
-  const sections = [];
-
-
-  if (product.name) {
-
-    sections.push(
-      String(product.name)
-    );
-
-  }
+  availableGrid.innerHTML =
+    '';
 
 
-  if (product.price != null) {
+  if (!products.length) {
 
-    sections.push(
-      `$${Number(product.price).toFixed(2)}`
-    );
-
-  }
-
-
-  if (product.description) {
-
-    sections.push(
-      String(product.description)
-    );
-
-  }
-
-
-  if (product.materials) {
-
-    sections.push(
-      String(product.materials)
-    );
-
-  }
-
-
-  if (product.dimensions) {
-
-    sections.push(
-      String(product.dimensions)
-    );
-
-  }
-
-
-  if (product.care_instructions) {
-
-    sections.push(
-      String(product.care_instructions)
-    );
-
-  }
-
-
-  infoContainer.textContent =
-    sections.join('\n\n');
-
-}
-
-
-/* =========================================================
-   PRODUCT STATUS
-========================================================= */
-
-function renderAction(product) {
-
-  actionContainer.innerHTML = '';
-
-
-  if (
-    product.status === 'sold'
-  ) {
-
-    actionContainer.innerHTML = `
-      <div class="sold-message">
-        sold
+    availableGrid.innerHTML = `
+      <div class="store-empty">
+        nothing currently available
       </div>
     `;
 
+    return;
+
   }
 
+
+  products.forEach(
+    product => {
+
+      const card =
+        document.createElement(
+          'div'
+        );
+
+      card.className =
+        'store-product';
+
+
+      card.innerHTML = `
+
+        <div
+          class="drag-handle"
+          data-product-id="${product.id}"
+          aria-label="Drag ${escapeHTML(product.name)} to basket"
+          role="button"
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+        <a
+          href="product.html?id=${encodeURIComponent(product.id)}"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <img
+            class="store-product-image"
+            src="${product.image_url}"
+            alt="${escapeHTML(product.name)}"
+          >
+
+        </a>
+
+
+        <div class="store-product-info">
+
+          <div class="store-product-name">
+
+            <a
+              href="product.html?id=${encodeURIComponent(product.id)}"
+              target="_blank"
+              rel="noopener"
+            >
+              ${escapeHTML(product.name)}
+            </a>
+
+          </div>
+
+
+          <div class="store-product-price">
+            $${Number(product.price).toFixed(2)}
+          </div>
+
+        </div>
+
+      `;
+
+
+      availableGrid.appendChild(
+        card
+      );
+
+    }
+  );
 }
-
 /* =========================================================
-   ERROR
+   SOLD PRODUCTS
 ========================================================= */
+function renderSold(
+  products
+) {
 
-function showError() {
+  soldGrid.innerHTML =
+    '';
 
-  imagesContainer.innerHTML = '';
 
-  infoContainer.innerHTML = `
-    <div class="product-error">
-      product could not be found
-    </div>
-  `;
+  if (!products.length) {
 
-  actionContainer.innerHTML = '';
+    soldPile.style.display =
+      'none';
 
+    return;
+
+  }
+
+
+  soldPile.style.display =
+    '';
+
+
+  products.forEach(
+    product => {
+
+      const card =
+        document.createElement(
+          'div'
+        );
+
+      card.className =
+        'sold-product';
+
+
+      card.innerHTML = `
+
+        <a
+          href="product.html?id=${encodeURIComponent(product.id)}"
+        >
+
+          <img
+            class="sold-product-image"
+            src="${product.image_url}"
+            alt="${escapeHTML(product.name)}"
+          >
+
+        </a>
+
+
+        <div class="sold-product-info">
+          <a
+            href="product.html?id=${encodeURIComponent(product.id)}"
+          >
+            ${escapeHTML(product.name)}
+          </a>
+          <br>
+          sold
+        </div>
+      `;
+
+
+      soldGrid.appendChild(
+        card
+      );
+
+    }
+  );
 }
-
-
 /* =========================================================
-   HTML ESCAPE
+   BASIC HTML ESCAPE
 ========================================================= */
-
-function escapeHTML(value) {
-
+function escapeHTML(
+  value
+) {
   return String(
     value ?? ''
   )
@@ -478,18 +613,9 @@ function escapeHTML(value) {
       /'/g,
       '&#039;'
     );
-
 }
-
-
 /* =========================================================
-   INITIALIZE
+   START
 ========================================================= */
-
-
-loadProduct();
-
-</script>
-
-</body>
-</html>
+loadProducts();
+</script></body></html>
