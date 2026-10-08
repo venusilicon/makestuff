@@ -81,14 +81,17 @@ a {
   white-space: pre-line;
 }
 
-
-
 .sold-message {
   margin-top: 4vw;
 }
 
 .product-error {
   line-height: 1.25;
+}
+
+.wrought-properties {
+  text-align: right;
+  white-space: pre;
 }
 
 </style>
@@ -376,29 +379,16 @@ function renderInfo(product) {
 
   }
 
-
-if (product.padding_density) {
-
-  sections.push(
-    `padding density: ${product.padding_density}`
-  );
-
-}
-
-
-if (product.compression_tolerance) {
+if (
+  product.compression_tolerance ||
+  product.shape_retention ||
+  product.padding_density
+) {
 
   sections.push(
-    `compression tolerance: ${product.compression_tolerance}`
-  );
-
-}
-
-
-if (product.shape_retention) {
-
-  sections.push(
-    `shape retention: ${product.shape_retention}`
+    `<div class="wrought-properties">compression tolerance: ${product.compression_tolerance}
+shape retention: ${product.shape_retention}
+padding density: ${product.padding_density}</div>`
   );
 
 }
@@ -413,8 +403,8 @@ if (product.shape_retention) {
   }
 
 
-  infoContainer.textContent =
-    sections.join('\n\n');
+infoContainer.innerHTML =
+  sections.join('\n\n');
 
 }
 
