@@ -470,6 +470,7 @@ function renderAvailable(
 
           <img
             class="store-product-image"
+            style="aspect-ratio: ${product.aspect_ratio === false ? '1 / 1' : '5 / 4'};"
             src="${product.image_url}"
             alt="${escapeHTML(product.name)}"
           >
